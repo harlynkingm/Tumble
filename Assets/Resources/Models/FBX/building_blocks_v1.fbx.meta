@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: d510bf3f61bc342a2849f97142681968
+timeCreated: 1429679631
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: base
+    100002: base 1
+    100004: base 2
+    100006: blue_cube
+    100008: //RootNode
+    100010: button
+    100012: eight_by_two
+    100014: eight_by_two_thick
+    100016: four_by_one
+    100018: four_by_two
+    100020: four_by_two_rails
+    100022: gold_cube
+    100024: harmful_piece
+    100026: jump
+    100028: jumper
+    100030: large_friend
+    100032: plate
+    100034: player
+    100036: press
+    100038: pressure_plate
+    100040: small_friend
+    100042: two_by_two
+    400000: base
+    400002: base 1
+    400004: base 2
+    400006: blue_cube
+    400008: //RootNode
+    400010: button
+    400012: eight_by_two
+    400014: eight_by_two_thick
+    400016: four_by_one
+    400018: four_by_two
+    400020: four_by_two_rails
+    400022: gold_cube
+    400024: harmful_piece
+    400026: jump
+    400028: jumper
+    400030: large_friend
+    400032: plate
+    400034: player
+    400036: press
+    400038: pressure_plate
+    400040: small_friend
+    400042: two_by_two
+    2300000: base
+    2300002: base 1
+    2300004: base 2
+    2300006: blue_cube
+    2300008: eight_by_two
+    2300010: eight_by_two_thick
+    2300012: four_by_one
+    2300014: four_by_two
+    2300016: four_by_two_rails
+    2300018: gold_cube
+    2300020: harmful_piece
+    2300022: jumper
+    2300024: large_friend
+    2300026: plate
+    2300028: player
+    2300030: press
+    2300032: small_friend
+    2300034: two_by_two
+    3300000: base
+    3300002: base 1
+    3300004: base 2
+    3300006: blue_cube
+    3300008: eight_by_two
+    3300010: eight_by_two_thick
+    3300012: four_by_one
+    3300014: four_by_two
+    3300016: four_by_two_rails
+    3300018: gold_cube
+    3300020: harmful_piece
+    3300022: jumper
+    3300024: large_friend
+    3300026: plate
+    3300028: player
+    3300030: press
+    3300032: small_friend
+    3300034: two_by_two
+    4300000: player
+    4300002: four_by_two
+    4300004: eight_by_two
+    4300006: two_by_two
+    4300008: eight_by_two_thick
+    4300010: blue_cube
+    4300012: gold_cube
+    4300014: large_friend
+    4300016: small_friend
+    4300018: harmful_piece
+    4300020: four_by_two_rails
+    4300022: four_by_one
+    4300024: base
+    4300026: press
+    4300028: base
+    4300030: jumper
+    4300032: plate
+    4300034: base
+    6400000: base
+    6400002: base 1
+    6400004: base 2
+    6400006: blue_cube
+    6400008: eight_by_two
+    6400010: eight_by_two_thick
+    6400012: four_by_one
+    6400014: four_by_two
+    6400016: four_by_two_rails
+    6400018: gold_cube
+    6400020: harmful_piece
+    6400022: jumper
+    6400024: large_friend
+    6400026: plate
+    6400028: player
+    6400030: press
+    6400032: small_friend
+    6400034: two_by_two
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
