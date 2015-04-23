@@ -46,7 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Controller\player_controller.js" />
      <Compile Include="Assets\Scripts\Controller\rotate_controller.js" />
+     <Compile Include="Assets\Scripts\Object\Animation\constant_animation.js" />
+     <Compile Include="Assets\Scripts\Object\Animation\elevator_animation.js" />
+     <Compile Include="Assets\Scripts\Object\Event\explode_event.js" />
+     <Compile Include="Assets\Scripts\Object\Interactable\cube_trigger.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
