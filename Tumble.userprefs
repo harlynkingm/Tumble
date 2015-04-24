@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/player_controller.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/rotate_controller.js">
     <Files>
-      <File FileName="Assets/Scripts/Camera/camera_control.cs" Line="30" Column="42" />
-      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="4" Column="9" />
-      <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="22" Column="28" />
-      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="41" Column="29" />
+      <File FileName="Assets/Scripts/Object/Animation/elevator_animation.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Camera/camera_control.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="40" Column="35" />
+      <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

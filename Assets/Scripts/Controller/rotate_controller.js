@@ -8,10 +8,37 @@ private var p: float;
 private var x: float;
 private var startAngle: float;
 private var player : player_controller;
+private var hit : RaycastHit;
 
 function Start () {
 	curEuler = transform.eulerAngles;
 	player = GameObject.Find("player").GetComponent(player_controller);
+}
+
+function FixedUpdate () {
+	if (Input.touchCount > 0){
+		for (var touch : Touch in Input.touches){
+			if (touch.phase == TouchPhase.Began) checkHits (touch);
+		}
+	}
+}
+
+function checkHits(touch : Touch){
+	var noTurn : boolean = false;
+	var ray : Ray = GetComponent(Camera).ScreenPointToRay(touch.position);
+	if (Physics.Raycast(ray, hit)){
+		if (hit.collider.name == "button"){
+			noTurn = true;
+		}
+	}
+	if (noTurn == false) Turn(touch);
+	noTurn = false;
+}
+
+function Turn(touch : Touch){
+	var width : float = Screen.width;
+	if ((touch.position.x/width) < .4) RotateLeft();
+	else if ((touch.position.x/width) > .6) RotateRight();
 }
 
 function RotateRight() {
