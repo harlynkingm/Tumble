@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var explode: GameObject;
+var circle: GameObject;
 static private var sensitivity: float = .5;
 private var force: float = .3;
 private var dir: Vector3 = Vector3(1, 0, 0);
@@ -11,14 +12,14 @@ private var r: Renderer;
 private var magnetCrusher: String[];
 private var alive: boolean = true;
 private var spawnTime: float;
-private var startPos : Vector3;
 private var exploded : GameObject;
+private var spawnPos : Vector3;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
 	c = GetComponent(Collider);
 	r = GetComponent(Renderer);
-	startPos = transform.position;
+	spawnPos = transform.position;
 }
 
 function Update () {
@@ -35,6 +36,15 @@ function Update () {
 function changeDirection(newDir : Vector3){
 	dir = newDir;
 }
+
+//function OnCollisionEnter(collision : Collision){
+//	if (collision.relativeVelocity.magnitude >= 8){
+//		//Debug.Log(collision.relativeVelocity.magnitude);
+//		for (var contact : ContactPoint in collision.contacts){
+//			Instantiate(circle, contact.point, transform.rotation);
+//		}
+//	}
+//}
 
 function OnCollisionStay(collision: Collision){
 	if (collision.gameObject.name == "crusher-"){
@@ -58,7 +68,7 @@ function despawn(){
 }
 
 function respawn(){
-	transform.position = startPos;
+	transform.position = spawnPos;
 	rb.isKinematic = false;
 	rb.velocity = Vector3.zero;
 	rb.angularVelocity = Vector3.zero;
@@ -68,4 +78,8 @@ function respawn(){
 	alive = true;
 	Destroy(exploded);
 	exploded = null;
+}
+
+function changeSpawn(pos : Vector3){
+	spawnPos = pos;
 }

@@ -9,36 +9,47 @@ private var x: float;
 private var startAngle: float;
 private var player : player_controller;
 private var hit : RaycastHit;
+private var zoomLevel : float = 5;
+private var cam : Camera;
 
 function Start () {
 	curEuler = transform.eulerAngles;
 	player = GameObject.Find("player").GetComponent(player_controller);
+	cam = GetComponent(Camera);
 }
 
-function FixedUpdate () {
+function Update () {
 	if (Input.touchCount > 0){
-		for (var touch : Touch in Input.touches){
-			if (touch.phase == TouchPhase.Began) checkHits (touch);
-		}
+		if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) checkHits (Input.GetTouch(0));
+		else if (Input.touchCount == 2 && (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began)) Zoom();
 	}
 }
 
 function checkHits(touch : Touch){
 	var noTurn : boolean = false;
-	var ray : Ray = GetComponent(Camera).ScreenPointToRay(touch.position);
+	var ray : Ray = cam.ScreenPointToRay(touch.position);
 	if (Physics.Raycast(ray, hit)){
 		if (hit.collider.name == "button"){
 			noTurn = true;
 		}
 	}
 	if (noTurn == false) Turn(touch);
-	noTurn = false;
+}
+
+function Zoom(){
+	if (zoomLevel == 5) zoomLevel = 10;
+	else zoomLevel = 5;
+	while (cam.orthographicSize != zoomLevel){
+		if (Mathf.Abs(zoomLevel - cam.orthographicSize) < .1) cam.orthographicSize = zoomLevel;
+		else cam.orthographicSize = Mathf.MoveTowards(cam.orthographicSize, zoomLevel, Time.deltaTime * 3);
+		yield;
+	}
 }
 
 function Turn(touch : Touch){
 	var width : float = Screen.width;
-	if ((touch.position.x/width) < .4) RotateLeft();
-	else if ((touch.position.x/width) > .6) RotateRight();
+	if ((touch.position.x/width) < .5) RotateLeft();
+	else if ((touch.position.x/width) > .5) RotateRight();
 }
 
 function RotateRight() {
@@ -62,7 +73,7 @@ function RotateAngle(angle: float){
 	while (p < 1){
 		p = Mathf.Clamp01((Time.time - startTime)/time);
 		x = p*p*p*(p*(p*6 - 15) + 10);
-		curEuler.z = Mathf.LerpAngle(startAngle, currentAngle, x);
+		curEuler.z = Mathf.Lerp(startAngle, currentAngle, x);
 		transform.eulerAngles = curEuler;
 		yield;
 	}
