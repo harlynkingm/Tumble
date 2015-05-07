@@ -11,7 +11,7 @@ private var endPos : Vector3;
 private var p : float;
 
 function Start(){
-	startPos = transform.position;
+	startPos = transform.localPosition;
 	endPos = startPos + relativeEnd;
 }
 
@@ -19,7 +19,7 @@ function Update () {
 	if (rotating) transform.Rotate(rotation * Time.deltaTime);
 	if (moving){
 		p = Mathf.Sin((Mathf.PI * (Time.time - offset))/moveTime)/2 + .5;
-		transform.position = (Vector3(Mathf.Lerp(startPos.x, endPos.x, p), Mathf.Lerp(startPos.y, endPos.y, p), Mathf.Lerp(startPos.z, endPos.z, p)));
+		transform.localPosition = (Vector3(Mathf.Lerp(startPos.x, endPos.x, p), Mathf.Lerp(startPos.y, endPos.y, p), Mathf.Lerp(startPos.z, endPos.z, p)));
 	}
 }
 

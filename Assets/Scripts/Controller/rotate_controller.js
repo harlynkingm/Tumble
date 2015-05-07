@@ -9,19 +9,20 @@ private var x: float;
 private var startAngle: float;
 private var player : player_controller;
 private var hit : RaycastHit;
-private var zoomLevel : float = 5;
+private var lastDistance : float;
 private var cam : Camera;
 
 function Start () {
 	curEuler = transform.eulerAngles;
 	player = GameObject.Find("player").GetComponent(player_controller);
 	cam = GetComponent(Camera);
+	UpdateGravity();
 }
 
 function Update () {
 	if (Input.touchCount > 0){
 		if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) checkHits (Input.GetTouch(0));
-		else if (Input.touchCount == 2 && (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began)) Zoom();
+		else if (Input.touchCount == 2) Zoom();
 	}
 }
 
@@ -37,13 +38,18 @@ function checkHits(touch : Touch){
 }
 
 function Zoom(){
-	if (zoomLevel == 5) zoomLevel = 10;
-	else zoomLevel = 5;
-	while (cam.orthographicSize != zoomLevel){
-		if (Mathf.Abs(zoomLevel - cam.orthographicSize) < .1) cam.orthographicSize = zoomLevel;
-		else cam.orthographicSize = Mathf.MoveTowards(cam.orthographicSize, zoomLevel, Time.deltaTime * 3);
-		yield;
-	}
+	if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began){ 
+		lastDistance = GetTouchesDistance();
+		}
+	var delta : float = GetTouchesDistance() - lastDistance;
+	cam.orthographicSize -= delta * Time.deltaTime * .5;
+	if (cam.orthographicSize < 3) cam.orthographicSize = 3;
+	else if (cam.orthographicSize > 10) cam.orthographicSize = 10;
+	lastDistance = GetTouchesDistance();
+}
+
+function GetTouchesDistance(){
+	return Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
 }
 
 function Turn(touch : Touch){

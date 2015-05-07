@@ -3,7 +3,7 @@
 var explode: GameObject;
 var circle: GameObject;
 static private var sensitivity: float = .5;
-private var force: float = .3;
+private var force: float = 1;
 private var dir: Vector3 = Vector3(1, 0, 0);
 private var x : float;
 private var rb: Rigidbody;
@@ -68,7 +68,7 @@ function despawn(){
 }
 
 function respawn(){
-	transform.position = spawnPos;
+	transform.localPosition = spawnPos;
 	rb.isKinematic = false;
 	rb.velocity = Vector3.zero;
 	rb.angularVelocity = Vector3.zero;
