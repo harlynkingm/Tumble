@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/player_controller.js">
     <Files>
-      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="46" Column="3" />
+      <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="22" Column="19" />
+      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="45" Column="53" />
       <File FileName="Assets/Scripts/Object/Animation/elevator_animation.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="12" Column="27" />
-      <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="6" Column="31" />
+      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="6" Column="29" />
+      <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="8" Column="89" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
