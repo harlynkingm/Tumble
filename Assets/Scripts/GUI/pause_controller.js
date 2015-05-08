@@ -7,3 +7,7 @@ function Pause(){
 function Play(){
 	Time.timeScale = 1;
 }
+
+function Restart(){
+	Application.LoadLevel(Application.loadedLevel);
+}

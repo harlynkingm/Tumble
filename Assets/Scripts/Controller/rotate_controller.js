@@ -17,6 +17,7 @@ function Start () {
 	player = GameObject.Find("player").GetComponent(player_controller);
 	cam = GetComponent(Camera);
 	UpdateGravity();
+	if (Application.loadedLevelName == "Level 1") gameObject.GetComponent(rotate_controller).enabled = false;
 }
 
 function Update () {

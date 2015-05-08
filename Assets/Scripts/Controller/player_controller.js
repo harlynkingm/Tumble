@@ -15,6 +15,7 @@ private var spawnTime: float;
 private var exploded : GameObject;
 private var spawnPos : Vector3;
 private var cubeTotal : int;
+private var cubesInLevel : int;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
@@ -22,6 +23,7 @@ function Start(){
 	r = GetComponent(Renderer);
 	spawnPos = transform.position;
 	cubeTotal = 0;
+	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
 }
 
 function Update () {
@@ -94,4 +96,8 @@ function addCube(){
 
 function getCubes(){
 	return cubeTotal;
+}
+
+function getCubesInLevel(){
+	return cubesInLevel;
 }

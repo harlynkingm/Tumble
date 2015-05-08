@@ -1,7 +1,8 @@
 ﻿#pragma strict
 
-var levelnum : int = 0;
-
 function OnTriggerEnter (other : Collider) {
-	if (levelnum != 0 && other.gameObject.tag == "Player") Application.LoadLevel(levelnum);
+	if (Application.loadedLevel == Application.levelCount - 2) Application.LoadLevel("Main Menu");
+	else{
+		if (other.gameObject.tag == "Player") Application.LoadLevel(Application.loadedLevel + 1);
+	}
 }

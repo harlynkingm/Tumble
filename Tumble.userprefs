@@ -1,13 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/rotate_controller.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/conversation_controller.cs">
     <Files>
-      <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="22" Column="19" />
-      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="36" Column="3" />
+      <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Object/Animation/elevator_animation.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="38" Column="2" />
-      <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/remove_children.js" Line="6" Column="41" />
+      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="137" Column="109" />
+      <File FileName="Assets/Scripts/GUI/cube_counter.js" Line="6" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
