@@ -20,7 +20,7 @@ function Start () {
 }
 
 function Update () {
-	if (Input.touchCount > 0){
+	if (Input.touchCount > 0 && Time.timeScale == 1){
 		if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) checkHits (Input.GetTouch(0));
 		else if (Input.touchCount == 2) Zoom();
 	}
@@ -33,6 +33,9 @@ function checkHits(touch : Touch){
 		if (hit.collider.name == "button"){
 			noTurn = true;
 		}
+	}
+	if (EventSystems.EventSystem.current.IsPointerOverGameObject(touch.fingerId)){
+		noTurn = true;
 	}
 	if (noTurn == false) Turn(touch);
 }

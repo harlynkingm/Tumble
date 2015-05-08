@@ -14,23 +14,27 @@ private var alive: boolean = true;
 private var spawnTime: float;
 private var exploded : GameObject;
 private var spawnPos : Vector3;
+private var cubeTotal : int;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
 	c = GetComponent(Collider);
 	r = GetComponent(Renderer);
 	spawnPos = transform.position;
+	cubeTotal = 0;
 }
 
 function Update () {
-	if (alive){
-		magnetCrusher = new String[2];
-		x = Input.acceleration.x * (1/sensitivity);
-		rb.AddForce(dir * force * x, ForceMode.VelocityChange);
-		}
-	else if (spawnTime > 0 && Time.time > spawnTime){
-		respawn();
-		}
+	if (Time.timeScale == 1){
+		if (alive){
+			magnetCrusher = new String[2];
+			x = Input.acceleration.x * (1/sensitivity);
+			rb.AddForce(dir * force * x, ForceMode.VelocityChange);
+			}
+		else if (spawnTime > 0 && Time.time > spawnTime){
+			respawn();
+			}
+	}
 }
 
 function changeDirection(newDir : Vector3){
@@ -82,4 +86,12 @@ function respawn(){
 
 function changeSpawn(pos : Vector3){
 	spawnPos = pos;
+}
+
+function addCube(){
+	cubeTotal += 1;
+}
+
+function getCubes(){
+	return cubeTotal;
 }
