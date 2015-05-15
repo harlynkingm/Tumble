@@ -4,6 +4,7 @@ using System.Collections;
 
 public class play_controller : MonoBehaviour {
 
+	public bool fades = true;
 	private int level = 0;
 
 	public void Load(){
@@ -11,6 +12,10 @@ public class play_controller : MonoBehaviour {
 			Time.timeScale = 1;
 			Application.LoadLevel(level);
 		}
+	}
+
+	void OnEnable(){
+		if (fades) SetFaded();
 	}
 
 	float GetFaded(){

@@ -4,6 +4,7 @@ var relativeEnd: Vector3;
 var loopTime: float;
 var object: GameObject;
 var objectRotation: Vector3;
+var objectSize: Vector3 = Vector3(1, 1, 1);;
 var numberOfElevators: int = 1;
 private var p : float;
 private var startPos: Vector3;
@@ -19,6 +20,7 @@ function Start(){
 		var offset : float = parseFloat(i)/parseFloat(numberOfElevators);
 		newObj.transform.position = Vector3(Mathf.Lerp(startPos.x, endPos.x, offset), Mathf.Lerp(startPos.y, endPos.y, offset), Mathf.Lerp(startPos.z, endPos.z, offset));
 		newObj.transform.eulerAngles = objectRotation;
+		newObj.transform.localScale = objectSize;
 		newObj.name = "crusher-";
 		elevators[i] = newObj;
 		}

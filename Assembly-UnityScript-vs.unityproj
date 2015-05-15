@@ -50,16 +50,16 @@
      <Compile Include="Assets\Scripts\Controller\rotate_controller.js" />
      <Compile Include="Assets\Scripts\GUI\cube_counter.js" />
      <Compile Include="Assets\Scripts\GUI\pause_controller.js" />
-     <Compile Include="Assets\Scripts\GUI\play_level.js" />
      <Compile Include="Assets\Scripts\GUI\remove_children.js" />
      <Compile Include="Assets\Scripts\GUI\rotate_cube_main_menu.js" />
      <Compile Include="Assets\Scripts\GUI\zone_level_text.js" />
+     <Compile Include="Assets\Scripts\Level\level_change.js" />
+     <Compile Include="Assets\Scripts\Level\play_level.js" />
      <Compile Include="Assets\Scripts\Object\Animation\constant_animation.js" />
      <Compile Include="Assets\Scripts\Object\Animation\elevator_animation.js" />
      <Compile Include="Assets\Scripts\Object\Event\circle_event.js" />
      <Compile Include="Assets\Scripts\Object\Event\explode_event.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\cube_trigger.js" />
-     <Compile Include="Assets\Scripts\Object\Interactable\level_change.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

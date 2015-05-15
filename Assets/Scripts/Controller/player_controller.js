@@ -16,6 +16,7 @@ private var exploded : GameObject;
 private var spawnPos : Vector3;
 private var cubeTotal : int;
 private var cubesInLevel : int;
+private var collisions : Array;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
@@ -24,12 +25,22 @@ function Start(){
 	spawnPos = transform.position;
 	cubeTotal = 0;
 	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
+//	collisions = new Array();
 }
 
 function Update () {
 	if (Time.timeScale == 1){
 		if (alive){
 			magnetCrusher = new String[2];
+//			if (collisions.length >= 2){
+//				var clsns : Collision[] = collisions.ToBuiltin(Collision) as Collision[];
+//				if (checkContacts(clsns[0], clsns[1])){
+//					despawn();
+//					//Debug.Log(Vector3.Distance(clsns[0].contacts[0].point, clsns[1].contacts[0].point));
+//				}
+//				else if (collisions.length >= 3 && (checkContacts(clsns[1], clsns[2]) || checkContacts(clsns[0], clsns[2]))) despawn();
+//			}
+//			collisions = new Array();
 			x = Input.acceleration.x * (1/sensitivity);
 			rb.AddForce(dir * force * x, ForceMode.VelocityChange);
 			}
@@ -37,6 +48,10 @@ function Update () {
 			respawn();
 			}
 	}
+}
+
+function checkContacts(collision1 : Collision, collision2 : Collision){
+	return (Vector3.Distance(collision1.contacts[0].point, collision2.contacts[0].point) >= .80);
 }
 
 function changeDirection(newDir : Vector3){
@@ -60,6 +75,7 @@ function OnCollisionStay(collision: Collision){
 		magnetCrusher[1] = collision.gameObject.name;
 	}
 	if (magnetCrusher[0] != null && magnetCrusher[1] != null) despawn();
+//	collisions.Push(collision);
 }
 
 function despawn(){
