@@ -1,8 +1,11 @@
 ﻿#pragma strict
 
-function OnTriggerEnter (other : Collider) {
-	if (Application.loadedLevel == Application.levelCount - 1) Application.LoadLevel("Main Menu");
-	else{
-		if (other.gameObject.tag == "Player") Application.LoadLevel(Application.loadedLevel + 1);
-	}
+function Change () {
+	if (Application.loadedLevel == Application.levelCount - 1) MainMenu();
+	else Application.LoadLevel(Application.loadedLevel + 1);
+}
+
+function MainMenu(){
+	Time.timeScale = 1;
+	Application.LoadLevel("Main Menu");
 }

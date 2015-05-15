@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\GUI\remove_children.js" />
      <Compile Include="Assets\Scripts\GUI\rotate_cube_main_menu.js" />
      <Compile Include="Assets\Scripts\GUI\zone_level_text.js" />
+     <Compile Include="Assets\Scripts\Level\cube_drop.js" />
      <Compile Include="Assets\Scripts\Level\level_change.js" />
      <Compile Include="Assets\Scripts\Level\play_level.js" />
      <Compile Include="Assets\Scripts\Object\Animation\constant_animation.js" />
