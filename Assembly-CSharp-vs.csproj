@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\camera_control.cs" />
      <Compile Include="Assets\Scripts\Controller\conversation_controller.cs" />
+     <Compile Include="Assets\Scripts\Controller\stats_controller.cs" />
      <Compile Include="Assets\Scripts\GUI\fade_in.cs" />
      <Compile Include="Assets\Scripts\GUI\play_controller.cs" />
  <Reference Include="UnityEngine.UI">

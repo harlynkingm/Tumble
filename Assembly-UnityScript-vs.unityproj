@@ -50,8 +50,11 @@
      <Compile Include="Assets\Scripts\Controller\rotate_controller.js" />
      <Compile Include="Assets\Scripts\GUI\cube_counter.js" />
      <Compile Include="Assets\Scripts\GUI\pause_controller.js" />
+     <Compile Include="Assets\Scripts\GUI\random_message.js" />
      <Compile Include="Assets\Scripts\GUI\remove_children.js" />
      <Compile Include="Assets\Scripts\GUI\rotate_cube_main_menu.js" />
+     <Compile Include="Assets\Scripts\GUI\stats_text.js" />
+     <Compile Include="Assets\Scripts\GUI\time_text.js" />
      <Compile Include="Assets\Scripts\GUI\zone_level_text.js" />
      <Compile Include="Assets\Scripts\Level\cube_drop.js" />
      <Compile Include="Assets\Scripts\Level\level_change.js" />

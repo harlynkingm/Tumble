@@ -1,18 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Level/cube_drop.js">
     <Files>
-      <File FileName="Assets/Scripts/Object/Animation/elevator_animation.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/cube_counter.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/fade_in.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level/level_change.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GUI/play_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level/cube_drop.js" Line="15" Column="116" />
-      <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/Level/cube_drop.js" Line="11" Column="21" />
+      <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="10" Column="83" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

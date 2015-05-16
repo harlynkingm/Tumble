@@ -17,6 +17,7 @@ private var spawnPos : Vector3;
 private var cubeTotal : int;
 private var cubesInLevel : int;
 private var collisions : Array;
+private var startTime : float;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
@@ -25,6 +26,7 @@ function Start(){
 	spawnPos = transform.position;
 	cubeTotal = 0;
 	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
+	startTime = Time.time;
 //	collisions = new Array();
 }
 
@@ -116,4 +118,8 @@ function getCubes(){
 
 function getCubesInLevel(){
 	return cubesInLevel;
+}
+
+function GetTime(){
+	return Mathf.Floor(Time.time - startTime);
 }

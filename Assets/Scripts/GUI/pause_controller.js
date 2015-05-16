@@ -12,6 +12,7 @@ function Play(){
 }
 
 function Restart(){
+	PlayerPrefs.SetInt ("times_restarted", PlayerPrefs.GetInt("times_restarted") + 1);
 	Application.LoadLevel(Application.loadedLevel);
 }
 

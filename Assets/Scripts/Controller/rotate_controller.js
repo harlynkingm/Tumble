@@ -11,6 +11,7 @@ private var player : player_controller;
 private var hit : RaycastHit;
 private var lastDistance : float;
 private var cam : Camera;
+private var zeroTime : float;
 
 function Start () {
 	curEuler = transform.eulerAngles;
@@ -25,6 +26,9 @@ function Update () {
 		if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) checkHits (Input.GetTouch(0));
 		else if (Input.touchCount == 2) Zoom();
 	}
+	else if (Time.timeScale == 0){
+		zeroTime = Time.time;
+	}
 }
 
 function checkHits(touch : Touch){
@@ -33,11 +37,13 @@ function checkHits(touch : Touch){
 	if (Physics.Raycast(ray, hit)){
 		if (hit.collider.name == "button"){
 			noTurn = true;
+			PlayerPrefs.SetInt ("buttons_pressed", PlayerPrefs.GetInt("buttons_pressed") + 1);
 		}
 	}
 	if (EventSystems.EventSystem.current.IsPointerOverGameObject(touch.fingerId)){
 		noTurn = true;
 	}
+	if (Time.time - zeroTime < .3) noTurn = true;
 	if (noTurn == false) Turn(touch);
 }
 
@@ -58,6 +64,7 @@ function GetTouchesDistance(){
 
 function Turn(touch : Touch){
 	var width : float = Screen.width;
+	PlayerPrefs.SetInt ("rotations_made", PlayerPrefs.GetInt("rotations_made") + 1);
 	if ((touch.position.x/width) < .5) RotateLeft();
 	else if ((touch.position.x/width) > .5) RotateRight();
 }

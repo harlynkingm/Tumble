@@ -32,11 +32,11 @@ public class fade_in : MonoBehaviour {
 			}
 		}
 		else{
-			if (touchColor.a < .75){
-				touchColor.a += .005f;
+			if (touchColor.a < .75 && Input.touchCount == 0){
+				touchColor.a += .01f;
 				touchText.GetComponent<Text>().color = touchColor;
 			}
-			else if (touchColor.a >= .75 && Input.touchCount > 0){
+			else if (Input.touchCount > 0){
 				fadeOut = true;
 			}
 		}

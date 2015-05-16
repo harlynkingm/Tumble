@@ -6,6 +6,7 @@ public class play_controller : MonoBehaviour {
 
 	public bool fades = true;
 	private int level = 0;
+	private float startTime;
 
 	public void Load(){
 		if (GetFaded() == 1f){
@@ -16,6 +17,7 @@ public class play_controller : MonoBehaviour {
 
 	void OnEnable(){
 		if (fades) SetFaded();
+		startTime = Time.time;
 	}
 
 	float GetFaded(){
@@ -61,6 +63,6 @@ public class play_controller : MonoBehaviour {
 	}
 
 	public void loadFirst(){
-		Application.LoadLevel(1);
+		if (Time.time - startTime > .5) Application.LoadLevel(1);
 	}
 }
