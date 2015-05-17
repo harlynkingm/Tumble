@@ -6,7 +6,6 @@ public class stats_controller : MonoBehaviour {
 	private float secs;
 	
 	void Start () {
-		PlayerPrefs.DeleteKey("time_played");
 		if (!PlayerPrefs.HasKey("time_played")){
 			PlayerPrefs.SetInt("time_played", 0);
 		}

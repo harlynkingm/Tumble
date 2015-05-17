@@ -1,7 +1,8 @@
 ﻿#pragma strict
 
 var explode: GameObject;
-var circle: GameObject;
+var mask: GameObject;
+var masks: Sprite[];
 static private var sensitivity: float = .5;
 private var force: float = 1;
 private var dir: Vector3 = Vector3(1, 0, 0);
@@ -27,6 +28,7 @@ function Start(){
 	cubeTotal = 0;
 	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
 	startTime = Time.time;
+	if (PlayerPrefs.HasKey("mask")) SetMask();
 //	collisions = new Array();
 }
 
@@ -86,6 +88,7 @@ function despawn(){
 	c.enabled = false;
 	rb.isKinematic = true;
 	spawnTime = Time.time + 2;
+	mask.SetActive(false);
 	if (exploded == null){
 		exploded = Instantiate(explode, transform.position, transform.rotation);
 	}
@@ -102,6 +105,7 @@ function respawn(){
 	alive = true;
 	Destroy(exploded);
 	exploded = null;
+	mask.SetActive(true);
 }
 
 function changeSpawn(pos : Vector3){
@@ -122,4 +126,9 @@ function getCubesInLevel(){
 
 function GetTime(){
 	return Mathf.Floor(Time.time - startTime);
+}
+
+function SetMask(){
+	var maskNum : int = PlayerPrefs.GetInt("mask");
+	mask.GetComponent(SpriteRenderer).sprite = masks[maskNum];
 }
