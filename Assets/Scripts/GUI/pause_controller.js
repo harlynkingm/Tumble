@@ -16,8 +16,19 @@ function Restart(){
 	Application.LoadLevel(Application.loadedLevel);
 }
 
+function ResetGame(){
+	PlayerPrefs.DeleteAll();
+	Application.LoadLevel("Main Menu");
+}
+
 function End(){
 	Pause();
 	pause.SetActive(false);
 	ending.SetActive(true);
+	AddCubesToTotal();
+}
+
+function AddCubesToTotal(){
+	var player : GameObject = GameObject.FindGameObjectWithTag("Player");
+	PlayerPrefs.SetInt("cubes", PlayerPrefs.GetInt("cubes") + player.GetComponent(player_controller).getCubes());
 }

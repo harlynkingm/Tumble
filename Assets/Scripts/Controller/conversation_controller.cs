@@ -122,10 +122,14 @@ public class conversation_controller : MonoBehaviour {
 	}
 
 	ConversationNode LevelTwo(){
-		ConversationNode head = new ConversationNode("Now that you've collected your first Cubes, it's time for us to teach you how to collect more effectively.", "How?", "Okay.");
+		ConversationNode intro = new ConversationNode("Here at LERP Corporation, individualism is highly valued.\nWe encourage all collectors to wear Masks while working.", "Huh.", "Alright?");
+		ConversationNode masks = new ConversationNode("You can choose and buy new Masks in the Pause Menu using the Cubes you've collected.", "Cool.", "Lame.");
+		intro.setBoth(masks);
+		ConversationNode head = new ConversationNode("Now, it's time for us to teach you how to collect more effectively.", "How?", "Okay.");
+		masks.setBoth(head);
 		ConversationNode one = new ConversationNode("Rotate the world by pressing the right or left side of the screen.", "What?", "Sure.");
 		head.setBoth(one);
-		return head;
+		return intro;
 	}
 
 	ConversationNode LevelThree(){

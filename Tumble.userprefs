@@ -1,13 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/mask_controller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI/touch_guard.js">
     <Files>
+      <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="76" Column="29" />
       <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GUI/play_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Level/cube_drop.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="94" Column="20" />
+      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI/cubes_text.js" Line="12" Column="65" />
+      <File FileName="Assets/Scripts/Controller/settings_controller.js" Line="28" Column="33" />
+      <File FileName="Assets/Scripts/GUI/touch_guard.js" Line="14" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

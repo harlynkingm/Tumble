@@ -92,6 +92,8 @@ function despawn(){
 	if (exploded == null){
 		exploded = Instantiate(explode, transform.position, transform.rotation);
 	}
+	if (PlayerPrefs.HasKey("vibe") && PlayerPrefs.GetInt("vibe") == 0) return;
+	else Handheld.Vibrate();
 }
 
 function respawn(){

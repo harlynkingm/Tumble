@@ -5,13 +5,16 @@ using UnityEngine.UI;
 public class mask_controller : MonoBehaviour {
 
 	public Sprite[] masks;
+	public int[] costs;
 	public GameObject demoImage;
 	public GameObject picture;
-//	private int startX;
-//	private int endX;
-	private int spaceBetween = 200;
+	public GameObject check;
+	public GameObject buyBtn;
+	public GameObject buyTxt;
+	private int spaceBetween = 160;
 	private GameObject[] list;
 	private int selected;
+	private int lastSelected;
 
 	void Start () {
 		list = new GameObject[masks.Length];
@@ -34,57 +37,55 @@ public class mask_controller : MonoBehaviour {
 		if (!PlayerPrefs.HasKey("mask")){
 			PlayerPrefs.SetInt("mask", 0);
 		}
+		if (!PlayerPrefs.HasKey("unlocks")){
+			string prepString = "";
+			for (int i = 0; i < masks.Length; i++){
+				if (costs[i] == 0) prepString = string.Concat(prepString, "1");
+				else prepString = string.Concat(prepString, "0");
+			}
+			PlayerPrefs.SetString("unlocks", prepString);
+		}
 	}
 
-//	void OnEnable (){
-//		changeX(startX + (PlayerPrefs.GetInt("mask") * spaceBetween));
-//	}
+	void OnEnable (){
+		changeX((PlayerPrefs.GetInt("mask") * spaceBetween * -1));
+	}
 
-//	void changeX(float x){
-//		Vector2 ancP = gameObject.GetComponent<RectTransform>().anchoredPosition;
-//		ancP.x = x;
-//		gameObject.GetComponent<RectTransform>().anchoredPosition = ancP;
-//	}
-
-//	void Update(){
-//		if (Input.touchCount > 0){
-//			if (Input.GetTouch (0).phase == TouchPhase.Ended) setNearest();
-//			else moveTransform(Input.GetTouch (0));
-//		}
-//	}
+	void changeX(float x){
+		Vector2 ancP = gameObject.GetComponent<RectTransform>().anchoredPosition;
+		ancP.x = x;
+		gameObject.GetComponent<RectTransform>().anchoredPosition = ancP;
+	}
 
 	void Update(){
 		selected = Mathf.FloorToInt(Mathf.Abs (getX ()/spaceBetween));
 		picture.GetComponent<Image>().sprite = list[selected].GetComponent<Image>().sprite;
+		if (selected != lastSelected) UpdateSelections();
+		lastSelected = selected;
 	}
 
-//	void moveTransform(Touch touch){
-//		Debug.Log (getX());
-//		if (getX () >= startX && getX() <= endX){
-//			changeX (getX () + (touch.deltaPosition.x * .001f));
-//		}
-//		else if (gameObject.GetComponent<RectTransform>().anchoredPosition.x < startX){
-//			changeX(startX);
-//		}
-//		else if (gameObject.GetComponent<RectTransform>().anchoredPosition.x > endX){
-//			changeX(endX);
-//		}
-//	}
-//
-//	void setNearest(){
-//		float currentX = getX ();
-//		float lowestSoFar = Mathf.Abs (startX - currentX);
-//		int pos = 0;
-//		for (int i = 0; i < masks.Length; i++){
-//			int compare = startX - (spaceBetween * i);
-//			if (Mathf.Abs(compare - currentX) < lowestSoFar){
-//				lowestSoFar = Mathf.Abs(compare - currentX);
-//				pos = i;
-//			}
-//		}
-//		changeX(lowestSoFar);
-//		PlayerPrefs.SetInt("mask", pos);
-//	}
+	void UpdateSelections(){
+		if (PlayerPrefs.GetString("unlocks")[selected] == "1"[0]){
+			check.SetActive(true);
+			buyBtn.SetActive(false);
+		}
+		else if (PlayerPrefs.GetString("unlocks")[selected] == "0"[0]){
+			check.SetActive(false);
+			buyBtn.SetActive(true);
+			buyTxt.GetComponent<Text>().text = string.Format("Buy: {0} Cubes", costs[selected]);
+			if (CanAffordSelected()){
+				buyTxt.GetComponent<Text>().color = Color.black;
+			}
+			else{
+				buyTxt.GetComponent<Text>().color = Color.red;
+			}
+		}
+	}
+
+	bool CanAffordSelected(){
+		if (PlayerPrefs.GetInt("cubes") >= costs[selected]) return true;
+		else return false;
+	}
 
 	float getX(){
 		return gameObject.GetComponent<RectTransform>().anchoredPosition.x;
@@ -92,7 +93,21 @@ public class mask_controller : MonoBehaviour {
 
 	public void SaveMask(){
 		PlayerPrefs.SetInt("mask", selected);
-		GameObject.FindGameObjectWithTag("Player").SendMessage("SetMask");
+		if (Application.loadedLevelName != "Main Menu") GameObject.FindGameObjectWithTag("Player").SendMessage("SetMask");
+	}
+
+	public void buySelected(){
+		if (CanAffordSelected()){
+			string prepString = "";
+			string curUnlocks = PlayerPrefs.GetString("unlocks");
+			for (int i = 0; i < masks.Length; i++){
+				if (i == selected) prepString = string.Concat(prepString, "1");
+				else prepString = string.Concat(prepString, curUnlocks[i]);
+			}
+			PlayerPrefs.SetString("unlocks", prepString);
+			PlayerPrefs.SetInt("cubes", PlayerPrefs.GetInt("cubes") - costs[selected]);
+			UpdateSelections();
+		}
 	}
 
 }
