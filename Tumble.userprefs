@@ -1,17 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI/touch_guard.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Camera/camera_control.cs">
     <Files>
-      <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="76" Column="29" />
-      <File FileName="Assets/Scripts/Object/Animation/constant_animation.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/play_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level/cube_drop.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/cubes_text.js" Line="12" Column="65" />
-      <File FileName="Assets/Scripts/Controller/settings_controller.js" Line="28" Column="33" />
-      <File FileName="Assets/Scripts/GUI/touch_guard.js" Line="14" Column="17" />
+      <File FileName="Assets/Scripts/GUI/cubes_text.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/settings_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI/animate_in.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI/pause_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level/level_change.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Camera/camera_control.cs" Line="35" Column="81" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -27,6 +27,12 @@ ModelImporter:
     100038: pressure_plate
     100040: small_friend
     100042: two_by_two
+    100044: eight_pipe
+    100046: eight_ramp
+    100048: four_pipe
+    100050: four_ramp
+    100052: two_pipe
+    100054: two_ramp
     400000: base
     400002: base 1
     400004: base 2
@@ -49,6 +55,12 @@ ModelImporter:
     400038: pressure_plate
     400040: small_friend
     400042: two_by_two
+    400044: eight_pipe
+    400046: eight_ramp
+    400048: four_pipe
+    400050: four_ramp
+    400052: two_pipe
+    400054: two_ramp
     2300000: base
     2300002: base 1
     2300004: base 2
@@ -67,6 +79,12 @@ ModelImporter:
     2300030: press
     2300032: small_friend
     2300034: two_by_two
+    2300036: eight_pipe
+    2300038: eight_ramp
+    2300040: four_pipe
+    2300042: four_ramp
+    2300044: two_pipe
+    2300046: two_ramp
     3300000: base
     3300002: base 1
     3300004: base 2
@@ -85,6 +103,12 @@ ModelImporter:
     3300030: press
     3300032: small_friend
     3300034: two_by_two
+    3300036: eight_pipe
+    3300038: eight_ramp
+    3300040: four_pipe
+    3300042: four_ramp
+    3300044: two_pipe
+    3300046: two_ramp
     4300000: player
     4300002: four_by_two
     4300004: eight_by_two
@@ -103,6 +127,12 @@ ModelImporter:
     4300030: jumper
     4300032: plate
     4300034: base
+    4300036: four_pipe
+    4300038: eight_pipe
+    4300040: two_pipe
+    4300042: four_ramp
+    4300044: two_ramp
+    4300046: eight_ramp
     9500000: //RootNode
   materials:
     importMaterials: 1

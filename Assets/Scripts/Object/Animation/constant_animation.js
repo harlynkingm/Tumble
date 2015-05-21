@@ -19,7 +19,7 @@ function Update () {
 	if (rotating) transform.Rotate(rotation * Time.deltaTime);
 	if (moving){
 		p = Mathf.Sin((Mathf.PI * (Time.time - offset))/moveTime)/2 + .5;
-		transform.localPosition = (Vector3(Mathf.Lerp(startPos.x, endPos.x, p), Mathf.Lerp(startPos.y, endPos.y, p), Mathf.Lerp(startPos.z, endPos.z, p)));
+		transform.localPosition = Vector3.Lerp(startPos, endPos, p);
 	}
 }
 

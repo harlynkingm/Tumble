@@ -3,6 +3,7 @@
 var explode: GameObject;
 var mask: GameObject;
 var masks: Sprite[];
+var glow: GameObject;
 static private var sensitivity: float = .5;
 private var force: float = 1;
 private var dir: Vector3 = Vector3(1, 0, 0);
@@ -19,6 +20,8 @@ private var cubeTotal : int;
 private var cubesInLevel : int;
 private var collisions : Array;
 private var startTime : float;
+private var cam: GameObject;
+private var camMoving: boolean;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
@@ -28,6 +31,7 @@ function Start(){
 	cubeTotal = 0;
 	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
 	startTime = Time.time;
+	cam = GameObject.FindGameObjectWithTag("MainCamera");
 	if (PlayerPrefs.HasKey("mask")) SetMask();
 //	collisions = new Array();
 }
@@ -48,8 +52,13 @@ function Update () {
 			x = Input.acceleration.x * (1/sensitivity);
 			rb.AddForce(dir * force * x, ForceMode.VelocityChange);
 			}
-		else if (spawnTime > 0 && Time.time > spawnTime){
+		else if (spawnTime > 0 && Time.time > spawnTime && camMoving == false){
+			camMoving = true;
+			cam.SendMessage("NiceMoveBro", Vector3(spawnPos.x, spawnPos.y, -10));
+		}
+		else if (spawnTime > 0 && Time.time > spawnTime && camMoving == true && Vector3.Distance(cam.transform.position, transform.position) <= 12){
 			respawn();
+			camMoving = false;
 			}
 	}
 }
@@ -89,6 +98,7 @@ function despawn(){
 	rb.isKinematic = true;
 	spawnTime = Time.time + 2;
 	mask.SetActive(false);
+	glow.SetActive(false);
 	if (exploded == null){
 		exploded = Instantiate(explode, transform.position, transform.rotation);
 	}
@@ -108,6 +118,7 @@ function respawn(){
 	Destroy(exploded);
 	exploded = null;
 	mask.SetActive(true);
+	glow.SetActive(true);
 }
 
 function changeSpawn(pos : Vector3){

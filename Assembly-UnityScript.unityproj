@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\Level\play_level.js" />
      <Compile Include="Assets\Scripts\Object\Animation\constant_animation.js" />
      <Compile Include="Assets\Scripts\Object\Animation\elevator_animation.js" />
+     <Compile Include="Assets\Scripts\Object\Animation\single_animation.js" />
      <Compile Include="Assets\Scripts\Object\Event\circle_event.js" />
      <Compile Include="Assets\Scripts\Object\Event\explode_event.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\cube_trigger.js" />

@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: acaa8286b77c241fcbeed6b38a297ec2
+timeCreated: 1431881898
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: masks_0
+    21300002: masks_1
+    21300004: masks_2
+    21300006: masks_3
+    21300008: masks_4
+    21300010: masks_5
+    21300012: masks_6
+    21300014: masks_7
+    21300016: masks_8
+    21300018: masks_9
+    21300020: masks_10
+    21300022: masks_11
+    21300024: masks_12
+    21300026: masks_13
+    21300028: masks_14
+    21300030: masks_15
+    21300032: masks_16
+    21300034: masks_17
+    21300036: masks_18
+    21300038: masks_19
+    21300040: masks_20
+    21300042: masks_21
+    21300044: masks_22
+    21300046: masks_23
+    21300048: masks_24
+    21300050: masks_25
+    21300052: masks_26
+    21300054: masks_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: masks_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 880
+        width: 142
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 880
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_2
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 880
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_3
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 880
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_4
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 880
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_5
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 880
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_6
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 880
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 729
+        width: 149
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_8
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 729
+        width: 139
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_9
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 729
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_10
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 738
+        width: 133
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_11
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 737
+        width: 136
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_12
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 738
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_13
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 736
+        width: 136
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_14
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 572
+        width: 167
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_15
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 584
+        width: 154
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_16
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 578
+        width: 136
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_17
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 598
+        width: 136
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_18
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 150
+        width: 142
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_19
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 150
+        width: 140
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_20
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 149
+        width: 147
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_21
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1
+        width: 141
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_22
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_23
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 0
+        width: 138
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_24
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 0
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_25
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 0
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_26
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 4
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: masks_27
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 4
+        width: 140
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

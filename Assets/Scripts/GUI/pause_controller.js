@@ -24,7 +24,7 @@ function ResetGame(){
 function End(){
 	Pause();
 	pause.SetActive(false);
-	ending.SetActive(true);
+	ending.GetComponent(animate_in).SendIn();
 	AddCubesToTotal();
 }
 
