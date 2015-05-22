@@ -29,4 +29,9 @@ function OnDrawGizmosSelected(){
 	if (GetComponent(MeshFilter) != null){
 		Gizmos.DrawWireMesh(GetComponent(MeshFilter).sharedMesh, transform.position + relativeEnd, transform.rotation, transform.localScale);
 		}
+	for (var child : Transform in transform){
+		if (child.gameObject.GetComponent(MeshFilter) != null){
+			Gizmos.DrawWireMesh(child.gameObject.GetComponent(MeshFilter).sharedMesh, child.position + relativeEnd, child.rotation, child.localScale);
+		}
+	} 
 }

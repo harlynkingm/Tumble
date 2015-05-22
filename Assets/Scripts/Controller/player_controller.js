@@ -4,7 +4,7 @@ var explode: GameObject;
 var mask: GameObject;
 var masks: Sprite[];
 var glow: GameObject;
-static private var sensitivity: float = .5;
+static private var sensitivity: float = .6;
 private var force: float = 1;
 private var dir: Vector3 = Vector3(1, 0, 0);
 private var x : float;
@@ -49,7 +49,7 @@ function Update () {
 //				else if (collisions.length >= 3 && (checkContacts(clsns[1], clsns[2]) || checkContacts(clsns[0], clsns[2]))) despawn();
 //			}
 //			collisions = new Array();
-			x = Input.acceleration.x * (1/sensitivity);
+			x = Input.acceleration.x * (1/(1 - sensitivity));
 			rb.AddForce(dir * force * x, ForceMode.VelocityChange);
 			}
 		else if (spawnTime > 0 && Time.time > spawnTime && camMoving == false){

@@ -1,18 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Camera/camera_control.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/player_controller.js">
     <Files>
       <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/cubes_text.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="7" Column="43" />
       <File FileName="Assets/Scripts/Controller/settings_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/animate_in.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/pause_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level/level_change.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Camera/camera_control.cs" Line="35" Column="81" />
+      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="22" Column="2" />
+      <File FileName="Assets/Scripts/Object/Animation/single_animation.js" Line="15" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\camera_control.cs" />
      <Compile Include="Assets\Scripts\Controller\conversation_controller.cs" />
+     <Compile Include="Assets\Scripts\Controller\lottery_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\mask_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\stats_controller.cs" />
      <Compile Include="Assets\Scripts\GUI\fade_in.cs" />

@@ -3,6 +3,7 @@
 var activeOnStart : boolean = true;
 var relativeDestination : Vector3;
 var length: float = 1;
+var delay: int;
 private var moving : boolean = false;
 private var reverse : boolean = false;
 private var p: float;
@@ -11,7 +12,7 @@ private var startTime : float;
 private var startPos : Vector3;
 
 function Start () {
-	if (activeOnStart) ActivateMove();
+	if (activeOnStart) Invoke("ActivateMove", delay);
 }
 
 function ActivateMove(){
@@ -45,4 +46,9 @@ function OnDrawGizmosSelected(){
 	if (GetComponent(MeshFilter) != null){
 		Gizmos.DrawWireMesh(GetComponent(MeshFilter).sharedMesh, transform.position + relativeDestination, transform.rotation, transform.localScale);
 		}
+	for (var child : Transform in transform){
+		if (child.gameObject.GetComponent(MeshFilter) != null){
+			Gizmos.DrawWireMesh(child.gameObject.GetComponent(MeshFilter).sharedMesh, child.position + relativeDestination, child.rotation, child.localScale);
+		}
+	} 
 }

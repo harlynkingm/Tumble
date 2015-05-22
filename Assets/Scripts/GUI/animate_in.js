@@ -50,7 +50,7 @@ function animate(endpos: float, si : boolean){
 
 function Update(){
 	if (animating && p < 1){
-		p += .025;
+		p += .05;
 		x = p*p*p*(p*(p*6 - 15) + 10);
 		curPos.y = Mathf.Lerp(startY, endp, x);
 		gameObject.GetComponent(RectTransform).anchoredPosition = curPos;
