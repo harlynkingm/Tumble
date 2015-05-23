@@ -49,9 +49,12 @@
      <Compile Include="Assets\Scripts\Camera\camera_control.cs" />
      <Compile Include="Assets\Scripts\Controller\conversation_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\lottery_controller.cs" />
+     <Compile Include="Assets\Scripts\Controller\lottery_winnings.cs" />
      <Compile Include="Assets\Scripts\Controller\mask_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\stats_controller.cs" />
      <Compile Include="Assets\Scripts\GUI\fade_in.cs" />
+     <Compile Include="Assets\Scripts\GUI\lottery_menu.cs" />
+     <Compile Include="Assets\Scripts\GUI\lottery_time_display.cs" />
      <Compile Include="Assets\Scripts\GUI\play_controller.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

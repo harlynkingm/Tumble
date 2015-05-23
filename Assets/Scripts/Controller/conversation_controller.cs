@@ -84,6 +84,12 @@ public class conversation_controller : MonoBehaviour {
 			return LevelSix();
 		case "Level 7":
 			return LevelSeven();
+		case "Level 8":
+			return LevelEight();
+		case "Level 9":
+			return LevelNine();
+		case "Level 10":
+			return LevelTen();
 		default:
 			return null;
 		}
@@ -184,6 +190,35 @@ public class conversation_controller : MonoBehaviour {
 		blah.setBoth(three);
 		two.setLeft(three);
 		one.setBoth(three);
+		return head;
+	}
+
+	ConversationNode LevelEight(){
+		ConversationNode head = new ConversationNode("Have you tried the Company Lottery? It seems like luck is on your side", "I don't need luck.", "I've tried it.");
+		ConversationNode one = new ConversationNode("It's a good way to earn a few extra Cubes. Like a bonus for all of your hard work.", "Whatever.", "Sounds good.");
+		head.setBoth(one);
+		return head;
+	}
+
+	ConversationNode LevelNine(){
+		ConversationNode head = new ConversationNode("I just figured out that Collectors could zoom out using two fingers.", "I already knew.", "Huh.");
+		ConversationNode one = new ConversationNode("I guess you learn something new every day.", "Doubtful.", "I guess so.");
+		head.setBoth(one);
+		return head;
+	}
+
+	ConversationNode LevelTen(){
+		ConversationNode head = new ConversationNode("You're reaching the end of Zone 1...", "Good.", "Alright.");
+		ConversationNode one = new ConversationNode("What do you think might be in Zone 2?", "Cubes.", "Bees.");
+		head.setBoth(one);
+		ConversationNode twoA = new ConversationNode("You got that right.", "I know...", "Let's do it.");
+		ConversationNode twoB = new ConversationNode("Why would you say that?", "I like bees.", "I hate bees.");
+		one.setLeft(twoA);
+		one.setRight(twoB);
+		ConversationNode three = new ConversationNode("What if there were bees in Zone 2?", "I'd love that.", "I'd hate that.");
+		twoB.setBoth(three);
+		ConversationNode four = new ConversationNode("Well, you'll find out soon enough.", "Not soon enough.", "Too soon.");
+		three.setBoth(four);
 		return head;
 	}
 

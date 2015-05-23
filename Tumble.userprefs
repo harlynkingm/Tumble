@@ -1,14 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/player_controller.js">
     <Files>
       <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="92" Column="22" />
       <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="7" Column="43" />
+      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="107" Column="46" />
       <File FileName="Assets/Scripts/Controller/settings_controller.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="22" Column="2" />
-      <File FileName="Assets/Scripts/Object/Animation/single_animation.js" Line="15" Column="2" />
+      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Object/Animation/single_animation.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI/lottery_time_display.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/lottery_controller.cs" Line="42" Column="3" />
+      <File FileName="Assets/Scripts/GUI/lottery_menu.cs" Line="126" Column="13" />
+      <File FileName="Assets/Scripts/Controller/lottery_winnings.cs" Line="21" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

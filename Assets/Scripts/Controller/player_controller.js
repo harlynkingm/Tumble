@@ -104,6 +104,7 @@ function despawn(){
 	}
 	if (PlayerPrefs.HasKey("vibe") && PlayerPrefs.GetInt("vibe") == 0) return;
 	else Handheld.Vibrate();
+	PlayerPrefs.SetInt("times_crushed", PlayerPrefs.GetInt("times_crushed") + 1);
 }
 
 function respawn(){

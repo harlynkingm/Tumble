@@ -3,11 +3,9 @@ using System.Collections;
 
 public class stats_controller : MonoBehaviour {
 
-	private float secs;
-	
 	void Start () {
-		if (!PlayerPrefs.HasKey("time_played")){
-			PlayerPrefs.SetInt("time_played", 0);
+		if (!PlayerPrefs.HasKey("times_crushed")){
+			PlayerPrefs.SetInt("times_crushed", 0);
 		}
 		if (!PlayerPrefs.HasKey("levels_beaten")){
 			PlayerPrefs.SetInt("levels_beaten", 0);
@@ -27,13 +25,6 @@ public class stats_controller : MonoBehaviour {
 		if (!PlayerPrefs.HasKey("jump_pads_used")){
 			PlayerPrefs.SetInt("jump_pads_used", 0);
 		}
-		secs = Time.time;
 	}
 
-	void Update(){
-		if ((Time.time - secs) > 1){
-			PlayerPrefs.SetInt ("time_played", PlayerPrefs.GetInt("time_played") + 1);
-			secs = Time.time;
-		}
-	}
 }
