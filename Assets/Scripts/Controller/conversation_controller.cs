@@ -10,6 +10,7 @@ public class conversation_controller : MonoBehaviour {
 	public GameObject a1Display;
 	public GameObject a2Display;
 	public GameObject pause;
+	public bool developerMode = false;
 	private ConversationNode currentNode;
 	private Text qText;
 	private Text a1Text;
@@ -53,7 +54,7 @@ public class conversation_controller : MonoBehaviour {
 
 	void Awake(){
 		currentNode = DefineTree(Application.loadedLevelName);
-		if (currentNode != null){
+		if (currentNode != null && developerMode == false){
 			qText = qDisplay.GetComponent<Text>();
 			a1Text = a1Display.GetComponent<Text>();
 			a2Text = a2Display.GetComponent<Text>();

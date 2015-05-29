@@ -17,7 +17,6 @@ public class lottery_winnings : MonoBehaviour {
 		int upper = cubeBase * 2;
 		int pseudoupper = Mathf.FloorToInt(cubeBase * 1.5f);
 		int randomHundred = Random.Range (1, 100);
-		Debug.Log (randomHundred);
 		if (randomHundred > 20) return Random.Range (cubeBase, upper);
 		else return Random.Range (lower, pseudoupper);
 	}

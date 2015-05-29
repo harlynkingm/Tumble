@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using NotificationType = UnityEngine.iOS.NotificationType;
+using NotificationServices = UnityEngine.iOS.NotificationServices;
+using LocalNotification = UnityEngine.iOS.LocalNotification;
 
 public class lottery_menu : MonoBehaviour {
 
@@ -11,7 +14,7 @@ public class lottery_menu : MonoBehaviour {
 	public GameObject plus;
 	public GameObject minus;
 	private Text cubesText;
-	private int currentInvestAmount = 0;
+	private int currentInvestAmount = 5;
 	private float lastTime;
 
 	void Start () {
@@ -19,11 +22,17 @@ public class lottery_menu : MonoBehaviour {
 		cubesText = cubes.GetComponent<Text>();
 		if (GetActive() == false) ResetMenu();
 		else SetupMenu();
+		//PlayerPrefs.SetInt("cubes", 25);
+		NotificationServices.RegisterForNotifications(NotificationType.Alert | NotificationType.Badge | NotificationType.Sound);
 	}
 	
 
 	void Update () {
 		cubesText.text = string.Format("{0}", currentInvestAmount);
+		if (NotificationServices.localNotificationCount > 0) {
+			Debug.Log(NotificationServices.localNotifications[0].alertBody);
+			NotificationServices.ClearLocalNotifications();
+		}
 	}
 
 	public void AddFive(){
@@ -37,7 +46,7 @@ public class lottery_menu : MonoBehaviour {
 
 	public void MinusFive(){
 		if (Time.time - lastTime > .3){
-			if (currentInvestAmount > 0){
+			if (currentInvestAmount > 5){
 				currentInvestAmount -= 5;
 			}
 			lastTime = Time.time;
@@ -49,9 +58,9 @@ public class lottery_menu : MonoBehaviour {
 			PlayerPrefs.SetInt("cubes", PlayerPrefs.GetInt("cubes") - currentInvestAmount);
 			SetCubeAmount(currentInvestAmount);
 			SetActive();
-			if (System.DateTime.Now.Hour < 8) SetDay(System.DateTime.Today, 8);
-			else if (System.DateTime.Now.Hour < 20) SetDay(System.DateTime.Today, 20);
-			else SetDay(System.DateTime.Today.AddDays(1), 8);
+			if (System.DateTime.Now.Hour < 8) SetDay(System.DateTime.Today, 0);
+			else if (System.DateTime.Now.Hour < 20) SetDay(System.DateTime.Today, 1);
+			else SetDay(System.DateTime.Today.AddDays(1), 0);
 			SetupMenu();
 			SetNotification();
 		}
@@ -82,17 +91,14 @@ public class lottery_menu : MonoBehaviour {
 
 	void SetNotification(){
 		if (GetActive() && notify.isOn){
-			Debug.Log ("NOTIFICATIONS ON");
-			UnityEngine.iOS.LocalNotification notification = new UnityEngine.iOS.LocalNotification();
-			notification.fireDate = new System.DateTime(GetYear (), GetMonth(), GetDay(), GetHour(), 0, 0);
-			notification.alertBody = "Company lottery winners have been announced! See what you won!";
-			UnityEngine.iOS.NotificationServices.ScheduleLocalNotification(notification);
+			System.DateTime temp = new System.DateTime(GetYear (), GetMonth(), GetDay(), GetHour(), 0, 0);
+			gameObject.GetComponent<notification_controller>().CreateNotification(temp);
 		}
 	}
 
 	void ClearNotifications(){
-		Debug.Log ("NOTIFICATIONS OFF");
-		UnityEngine.iOS.NotificationServices.CancelAllLocalNotifications();
+		//Debug.Log ("NOTIFICATIONS OFF");
+		NotificationServices.CancelAllLocalNotifications();
 	}
 
 	void SetDay(System.DateTime date, int hour){
@@ -107,6 +113,7 @@ public class lottery_menu : MonoBehaviour {
 		else tempMonth = "";
 		string tempString = string.Format("{0}{1}|{2}{3}|{4}|{5}|{6}", tempDay, day, tempMonth, month, year, hour, PlayerPrefs.GetString("lottery").Substring(13));
 		PlayerPrefs.SetString("lottery", tempString);
+		//Debug.Log (PlayerPrefs.GetString("lottery"));
 	}
 
 	int GetYear(){

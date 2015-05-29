@@ -14,7 +14,9 @@ function GetLevel(){
 }
 
 function GetZone(){
-	return Mathf.Floor(ParseLevel() / 10) + 1;
+	var level : int = ParseLevel();
+	if (level % 10 == 0) return level/10;
+	else return Mathf.Floor(level / 10) + 1;
 }
 
 function ParseLevel(){

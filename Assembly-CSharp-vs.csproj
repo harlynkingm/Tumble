@@ -51,8 +51,10 @@
      <Compile Include="Assets\Scripts\Controller\lottery_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\lottery_winnings.cs" />
      <Compile Include="Assets\Scripts\Controller\mask_controller.cs" />
+     <Compile Include="Assets\Scripts\Controller\notification_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\stats_controller.cs" />
      <Compile Include="Assets\Scripts\GUI\fade_in.cs" />
+     <Compile Include="Assets\Scripts\GUI\fps_display.cs" />
      <Compile Include="Assets\Scripts\GUI\lottery_menu.cs" />
      <Compile Include="Assets\Scripts\GUI\lottery_time_display.cs" />
      <Compile Include="Assets\Scripts\GUI\play_controller.cs" />

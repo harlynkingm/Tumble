@@ -13,8 +13,10 @@ public class fade_in : MonoBehaviour {
 	public GameObject touchText;
 	public GameObject intro;
 	public GameObject panel;
+	public GameObject cam;
 
 	void Start(){
+		if (cam.GetComponent<conversation_controller>().developerMode) intro.SetActive(false);
 		convo.SetActive(false);
 		text = gameObject.GetComponent<Text>().color;
 		touchColor = touchText.GetComponent<Text>().color;
