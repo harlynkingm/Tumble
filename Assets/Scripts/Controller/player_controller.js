@@ -27,8 +27,9 @@ private var startTime : float;
 private var cam: GameObject;
 private var camMoving: boolean;
 
-private var maxSpeed : float = 8;
+private var maxSpeed : float = 7;
 private var newRotation : Quaternion;
+//private var blockMove : Vector3;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
@@ -64,15 +65,22 @@ function Move(){
 //	x = Input.acceleration.x * (1/(1 - sensitivity));
 //	rb.AddForce(dir * force * x, ForceMode.VelocityChange);
 	x = Mathf.Clamp(Input.acceleration.x * 3, -1, 1);
-	y = Mathf.Clamp((Input.acceleration.y + .7) * 3, -1, 1);
-	if (Mathf.Abs(x) < .1) x = 0;
-	if (Mathf.Abs(y) < .1) y = 0;
-	//rb.velocity = Vector3(x, y, 0) * 10;
-	rb.AddForce(Vector3(x, y, 0) * 1, ForceMode.VelocityChange);
+	y = Mathf.Clamp((Input.acceleration.y + .5) * 3, -1, 1);
+	if (Mathf.Abs(x) < .05) x = 0;
+//	else if (blockMove.x >= .5 && x < 0) x = 0;
+//	else if (blockMove.x <= -.5 && x > 0) x = 0;
+	if (Mathf.Abs(y) < .05) y = 0;
+//	else if (blockMove.y >= .5 && y < 0) y = 0;
+//	else if (blockMove.y <= -.5 && y > 0) y = 0;
+//	rb.velocity = Vector3(x, y, 0) * 10;
+	rb.AddForce(Vector3(x, y, 0), ForceMode.VelocityChange);
+	if (x == 0) rb.AddForce(Vector3(rb.velocity.x * -.15, 0, 0), ForceMode.VelocityChange);
+	if (y == 0) rb.AddForce(Vector3(0, rb.velocity.y * -.15, 0), ForceMode.VelocityChange);
 }
 
 function FixedUpdate(){
 	collisions.Clear();
+	//blockMove = Vector3.zero;
 	if(rb.velocity.magnitude > maxSpeed){
 		rb.velocity = rb.velocity.normalized * maxSpeed;
 		}
@@ -101,6 +109,7 @@ function OnCollisionStay(collision: Collision){
 //	if (magnetCrusher[0] != null && magnetCrusher[1] != null) despawn();
 //	collisions.Push(collision);
 	collisions.Add(collision);
+	//blockMove += collision.contacts[0].normal;
 	if (collisions.Count < 2) return;
 	var new_normal : Vector3 = collision.contacts[0].normal;
 	for (var existing_coll : Collision in collisions){

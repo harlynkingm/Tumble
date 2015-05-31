@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\GUI\time_text.js" />
      <Compile Include="Assets\Scripts\GUI\touch_guard.js" />
      <Compile Include="Assets\Scripts\GUI\zone_level_text.js" />
+     <Compile Include="Assets\Scripts\Level\color_fader.js" />
      <Compile Include="Assets\Scripts\Level\cube_drop.js" />
      <Compile Include="Assets\Scripts\Level\level_change.js" />
      <Compile Include="Assets\Scripts\Level\play_level.js" />
