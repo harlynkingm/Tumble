@@ -2,6 +2,7 @@
 
 var ending : GameObject;
 var pause : GameObject;
+var highScore : GameObject;
 
 function Pause(){
 	Time.timeScale = 0;
@@ -31,5 +32,22 @@ function End(){
 
 function AddCubesToTotal(){
 	var player : GameObject = GameObject.FindGameObjectWithTag("Player");
-	PlayerPrefs.SetInt("cubes", PlayerPrefs.GetInt("cubes") + player.GetComponent(player_controller).getCubes());
+	var cubes : int = player.GetComponent(player_controller).getCubes();
+	PlayerPrefs.SetInt("cubes", PlayerPrefs.GetInt("cubes") + cubes);
+	UpdateLevelCubes(cubes);
+}
+
+function UpdateLevelCubes(cubes : int){
+	var level : int = ParseLevel();
+	if (cubes > int.Parse(PlayerPrefs.GetString("player_progress").Substring(level - 1, 1))){
+		var temp : String = String.Format("{0}{1}{2}", PlayerPrefs.GetString("player_progress").Substring(0, level - 1), cubes, PlayerPrefs.GetString("player_progress").Substring(level));
+		PlayerPrefs.SetString("player_progress", temp);
+		highScore.SetActive(true);
+	}
+	else highScore.SetActive(false);
+}
+
+function ParseLevel(){
+ 	var name : String = Application.loadedLevelName.Substring(5);
+	return parseInt(name);
 }

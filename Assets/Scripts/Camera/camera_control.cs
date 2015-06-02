@@ -27,7 +27,7 @@ public class camera_control : MonoBehaviour {
 
 	void Update () {
 		if (!moving){
-			t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
+			t.position = new Vector3(pt.position.x, pt.position.y, t.position.z);
 		}
 		else if (moving && p < 1){
 			p = Mathf.Clamp01((Time.time - startTime)/time);
@@ -39,6 +39,11 @@ public class camera_control : MonoBehaviour {
 			moving = false;
 		}
 	}
+
+//	void LateUpdate(){
+//		t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
+//		t.LookAt(pt);
+//	}
 
 	void NiceMoveBro(Vector3 move){
 		moving = true;

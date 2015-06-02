@@ -3,7 +3,7 @@
 function OnEnable () {
 	var level : int = GetLevel();
 	var zone : int = GetZone();
-	var text = String.Format("Zone {0} - Level {1}", zone, level);
+	var text = String.Format("Floor {0} - Level {1}", zone, level);
 	gameObject.GetComponent(UI.Text).text = text;
 }
 

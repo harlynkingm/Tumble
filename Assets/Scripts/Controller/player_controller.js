@@ -24,8 +24,11 @@ private var cubeTotal : int;
 private var cubesInLevel : int;
 private var collisions : List.<Collision>;
 private var startTime : float;
+private var startSize : Vector3;
 private var cam: GameObject;
 private var camMoving: boolean;
+private var capturePoint : int = 0;
+private var backwards : boolean = false;
 
 private var maxSpeed : float = 7;
 private var newRotation : Quaternion;
@@ -39,6 +42,7 @@ function Start(){
 	cubeTotal = 0;
 	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
 	startTime = Time.time;
+	startSize = transform.localScale;
 	cam = GameObject.FindGameObjectWithTag("MainCamera");
 	if (PlayerPrefs.HasKey("mask")) SetMask();
 	collisions = new List.<Collision>();
@@ -127,6 +131,8 @@ function despawn(){
 	spawnTime = Time.time + 2;
 	mask.SetActive(false);
 	glow.SetActive(false);
+	backwards = false;
+	capturePoint = 0;
 	if (exploded == null){
 		exploded = Instantiate(explode, transform.position, transform.rotation);
 	}
@@ -149,6 +155,15 @@ function respawn(){
 	exploded = null;
 	mask.SetActive(true);
 	glow.SetActive(true);
+	transform.localScale = Vector3.one * .05;
+	Grow();
+}
+
+function Grow(){
+	while (transform.localScale.x < startSize.x){
+		transform.localScale += Vector3.one * .05;
+		yield;
+	}
 }
 
 function changeSpawn(pos : Vector3){
@@ -178,4 +193,14 @@ function GetTime(){
 function SetMask(){
 	var maskNum : int = PlayerPrefs.GetInt("mask");
 	mask.GetComponent(SpriteRenderer).sprite = masks[maskNum];
+}
+
+function SetCapturePoint(newCP : int){
+	if (newCP < capturePoint) backwards = true;
+	else backwards = false;
+	capturePoint = newCP;
+}
+
+function GetBackwards(){
+	return backwards;
 }

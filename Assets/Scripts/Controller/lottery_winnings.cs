@@ -9,6 +9,7 @@ public class lottery_winnings : MonoBehaviour {
 	void OnEnable () {
 		int won = GetRandomCubes(GetInvested ());
 		PlayerPrefs.SetInt("cubes", PlayerPrefs.GetInt("cubes") + won);
+		PlayerPrefs.SetInt ("lottery_winnings", PlayerPrefs.GetInt("lottery_winnings") + won);
 		cubesWon.text = string.Format("{0}", won);
 	}
 

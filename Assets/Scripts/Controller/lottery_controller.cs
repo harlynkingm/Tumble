@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using NotificationType = UnityEngine.iOS.NotificationType;
+using NotificationServices = UnityEngine.iOS.NotificationServices;
+using LocalNotification = UnityEngine.iOS.LocalNotification;
 
 public class lottery_controller : MonoBehaviour {
 	
@@ -17,12 +20,17 @@ public class lottery_controller : MonoBehaviour {
 		// 11 gets AM/PM
 		// 13 gets active/inactive
 		// 15+ gets invested
-		PlayerPrefs.DeleteKey("lottery");
+		//PlayerPrefs.DeleteKey("lottery");
 		if (!PlayerPrefs.HasKey("lottery")){
 			PlayerPrefs.SetString("lottery", "00|00|0000|0|0|0");
 		}
 		//Debug.Log (PlayerPrefs.GetString("lottery"));
 		if (GetActive()) UpdateCompare();
+		NotificationServices.RegisterForNotifications(NotificationType.Alert | NotificationType.Badge | NotificationType.Sound);
+		LocalNotification setCountNotif = new LocalNotification();
+		setCountNotif.applicationIconBadgeNumber = -1;
+		setCountNotif.hasAction = false;
+		NotificationServices.PresentLocalNotificationNow(setCountNotif);
 	}
 
 	void OnEnable(){

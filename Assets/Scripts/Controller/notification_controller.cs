@@ -9,12 +9,11 @@ public class notification_controller : MonoBehaviour {
 
 	public void CreateNotification(DateTime date){
 		notif = new UnityEngine.iOS.LocalNotification();
-		notif.fireDate = notif.fireDate.AddDays(10);
+		notif.fireDate = System.DateTime.Now.AddSeconds(1);
 		notif.applicationIconBadgeNumber = 1;
 		notif.hasAction = true;
 		notif.alertBody = "Lottery winners have been announced! See what you won!";
-		Debug.Log (notif.fireDate);
 		UnityEngine.iOS.NotificationServices.ScheduleLocalNotification(notif); 
-		Debug.Log(UnityEngine.iOS.NotificationServices.scheduledLocalNotifications);
+		Debug.Log(UnityEngine.iOS.NotificationServices.scheduledLocalNotifications[0]);
 	}
 }

@@ -20,7 +20,7 @@ function OnEnable () {
 						PlayerPrefs.GetInt("times_crushed"),
 						PlayerPrefs.GetInt("levels_beaten"), 
 						PlayerPrefs.GetInt("cubes_collected"), 
-						PlayerPrefs.GetInt("rotations_made"), 
+						PlayerPrefs.GetInt("lottery_winnings"), 
 						PlayerPrefs.GetInt("times_restarted"), 
 						PlayerPrefs.GetInt("buttons_pressed"),
 						PlayerPrefs.GetInt("jump_pads_used"));

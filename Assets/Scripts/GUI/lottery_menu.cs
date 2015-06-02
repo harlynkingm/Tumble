@@ -18,12 +18,10 @@ public class lottery_menu : MonoBehaviour {
 	private float lastTime;
 
 	void Start () {
-		currentInvestAmount = GetInvested();
 		cubesText = cubes.GetComponent<Text>();
 		if (GetActive() == false) ResetMenu();
 		else SetupMenu();
 		//PlayerPrefs.SetInt("cubes", 25);
-		NotificationServices.RegisterForNotifications(NotificationType.Alert | NotificationType.Badge | NotificationType.Sound);
 	}
 	
 
@@ -82,6 +80,7 @@ public class lottery_menu : MonoBehaviour {
 		ticketText.text = "Ticket Purchased";
 		plus.SetActive(false);
 		minus.SetActive(false);
+		currentInvestAmount = GetInvested();
 	}
 
 	public void CheckNotification(){
@@ -92,13 +91,23 @@ public class lottery_menu : MonoBehaviour {
 	void SetNotification(){
 		if (GetActive() && notify.isOn){
 			System.DateTime temp = new System.DateTime(GetYear (), GetMonth(), GetDay(), GetHour(), 0, 0);
-			gameObject.GetComponent<notification_controller>().CreateNotification(temp);
+			CreateNotification(temp);
 		}
 	}
 
 	void ClearNotifications(){
 		//Debug.Log ("NOTIFICATIONS OFF");
 		NotificationServices.CancelAllLocalNotifications();
+	}
+
+	void CreateNotification(System.DateTime date){
+		LocalNotification notif = new LocalNotification();
+		notif.fireDate = date;
+		notif.applicationIconBadgeNumber = 1;
+		notif.hasAction = true;
+		notif.alertBody = "Lottery winners have been announced! See what you won!";
+		UnityEngine.iOS.NotificationServices.ScheduleLocalNotification(notif); 
+		//Debug.Log(UnityEngine.iOS.NotificationServices.scheduledLocalNotifications[0]);
 	}
 
 	void SetDay(System.DateTime date, int hour){
