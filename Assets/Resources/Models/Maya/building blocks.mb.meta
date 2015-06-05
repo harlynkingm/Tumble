@@ -33,6 +33,22 @@ ModelImporter:
     100050: four_ramp
     100052: two_pipe
     100054: two_ramp
+    100056: conveyor
+    100058: spoke
+    100060: spoke 1
+    100062: spoke 2
+    100064: spoke 3
+    100066: spoke 4
+    100068: turner
+    100070: turner1
+    100072: turner2
+    100074: turner3
+    100076: turner4
+    100078: wheel
+    100080: wheel 1
+    100082: wheel 2
+    100084: wheel 3
+    100086: wheel 4
     400000: base
     400002: base 1
     400004: base 2
@@ -61,6 +77,22 @@ ModelImporter:
     400050: four_ramp
     400052: two_pipe
     400054: two_ramp
+    400056: conveyor
+    400058: spoke
+    400060: spoke 1
+    400062: spoke 2
+    400064: spoke 3
+    400066: spoke 4
+    400068: turner
+    400070: turner1
+    400072: turner2
+    400074: turner3
+    400076: turner4
+    400078: wheel
+    400080: wheel 1
+    400082: wheel 2
+    400084: wheel 3
+    400086: wheel 4
     2300000: base
     2300002: base 1
     2300004: base 2
@@ -85,6 +117,17 @@ ModelImporter:
     2300042: four_ramp
     2300044: two_pipe
     2300046: two_ramp
+    2300048: conveyor
+    2300050: spoke
+    2300052: spoke 1
+    2300054: spoke 2
+    2300056: spoke 3
+    2300058: spoke 4
+    2300060: wheel
+    2300062: wheel 1
+    2300064: wheel 2
+    2300066: wheel 3
+    2300068: wheel 4
     3300000: base
     3300002: base 1
     3300004: base 2
@@ -109,6 +152,17 @@ ModelImporter:
     3300042: four_ramp
     3300044: two_pipe
     3300046: two_ramp
+    3300048: conveyor
+    3300050: spoke
+    3300052: spoke 1
+    3300054: spoke 2
+    3300056: spoke 3
+    3300058: spoke 4
+    3300060: wheel
+    3300062: wheel 1
+    3300064: wheel 2
+    3300066: wheel 3
+    3300068: wheel 4
     4300000: player
     4300002: four_by_two
     4300004: eight_by_two
@@ -133,6 +187,17 @@ ModelImporter:
     4300042: four_ramp
     4300044: two_ramp
     4300046: eight_ramp
+    4300048: conveyor
+    4300050: spoke
+    4300052: wheel
+    4300054: spoke
+    4300056: wheel
+    4300058: spoke
+    4300060: wheel
+    4300062: spoke
+    4300064: wheel
+    4300066: spoke
+    4300068: wheel
     9500000: //RootNode
   materials:
     importMaterials: 1

@@ -6,7 +6,7 @@ public class camera_control : MonoBehaviour {
 	private Transform t;
 	private Transform pt;
 	private Vector3 move;
-
+	private float maxVal = 1f;
 	private bool moving;
 	private Vector3 destination;
 	private float startTime;
@@ -27,23 +27,23 @@ public class camera_control : MonoBehaviour {
 
 	void Update () {
 		if (!moving){
-			t.position = new Vector3(pt.position.x, pt.position.y, t.position.z);
+			t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
+			t.LookAt(pt);
 		}
 		else if (moving && p < 1){
 			p = Mathf.Clamp01((Time.time - startTime)/time);
 			x = p*p*p*(p*(p*6 - 15) + 10);
-			if (plr.enabled) destination = new Vector3(pt.position.x, pt.position.y, -10);
+			if (plr.enabled) destination = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
 			t.position = Vector3.Lerp(startPos, destination, x);
 		}
 		else if (moving && p >= 1){
 			moving = false;
 		}
+		if (Time.timeScale == 1 && Input.touchCount == 1){
+			offset.x = Mathf.Clamp(offset.x - Input.GetTouch(0).deltaPosition.x * .01f, maxVal * -1f, maxVal);
+			offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .01f, maxVal * -1f, maxVal);
+		}
 	}
-
-//	void LateUpdate(){
-//		t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
-//		t.LookAt(pt);
-//	}
 
 	void NiceMoveBro(Vector3 move){
 		moving = true;

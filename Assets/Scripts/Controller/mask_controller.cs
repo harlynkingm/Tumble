@@ -15,6 +15,7 @@ public class mask_controller : MonoBehaviour {
 	private GameObject[] list;
 	private int selected;
 	private int lastSelected;
+	private float distPerMask;
 
 	void Start () {
 		list = new GameObject[masks.Length];
@@ -45,10 +46,13 @@ public class mask_controller : MonoBehaviour {
 			}
 			PlayerPrefs.SetString("unlocks", prepString);
 		}
+		distPerMask = (float) 1.0/masks.Length;
+		transform.parent.GetComponent<ScrollRect>().normalizedPosition = new Vector2(distPerMask * PlayerPrefs.GetInt("mask"), 0);
 	}
 
 	void OnEnable (){
-		changeX((PlayerPrefs.GetInt("mask") * spaceBetween * -1));
+		//changeX((PlayerPrefs.GetInt("mask") * spaceBetween * -1));
+		transform.parent.GetComponent<ScrollRect>().normalizedPosition = new Vector2(distPerMask * PlayerPrefs.GetInt("mask"), 0);
 	}
 
 	void changeX(float x){
@@ -58,7 +62,8 @@ public class mask_controller : MonoBehaviour {
 	}
 
 	void Update(){
-		selected = Mathf.FloorToInt(Mathf.Abs (getX ()/spaceBetween));
+		//selected = Mathf.FloorToInt(Mathf.Abs (getX ()/spaceBetween));
+		selected = Mathf.Clamp(Mathf.RoundToInt(transform.parent.GetComponent<ScrollRect>().normalizedPosition.x / distPerMask), 0, masks.Length - 1);
 		picture.GetComponent<Image>().sprite = list[selected].GetComponent<Image>().sprite;
 		if (selected != lastSelected) UpdateSelections();
 		lastSelected = selected;

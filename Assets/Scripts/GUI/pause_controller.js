@@ -15,6 +15,9 @@ function Play(){
 function Restart(){
 	Time.timeScale = 1;
 	PlayerPrefs.SetInt ("times_restarted", PlayerPrefs.GetInt("times_restarted") + 1);
+	var noConv = new GameObject();
+	noConv.tag = "EditorOnly";
+	GameObject.DontDestroyOnLoad(noConv);
 	Application.LoadLevel(Application.loadedLevel);
 }
 

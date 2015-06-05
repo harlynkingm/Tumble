@@ -54,6 +54,12 @@ public class conversation_controller : MonoBehaviour {
 
 	void Awake(){
 		currentNode = DefineTree(Application.loadedLevelName);
+		GameObject destroy = GameObject.FindGameObjectWithTag ("EditorOnly");
+		if (destroy != null){
+			GameObject.Destroy(destroy);
+			return;
+		}
+
 		if (currentNode != null && developerMode == false){
 			qText = qDisplay.GetComponent<Text>();
 			a1Text = a1Display.GetComponent<Text>();
@@ -79,18 +85,6 @@ public class conversation_controller : MonoBehaviour {
 			return LevelThree();
 		case "Level 4":
 			return LevelFour();
-		case "Level 5":
-			return LevelFive();
-		case "Level 6":
-			return LevelSix();
-		case "Level 7":
-			return LevelSeven();
-		case "Level 8":
-			return LevelEight();
-		case "Level 9":
-			return LevelNine();
-		case "Level 10":
-			return LevelTen();
 		default:
 			return null;
 		}
@@ -101,9 +95,9 @@ public class conversation_controller : MonoBehaviour {
 		ConversationNode head = new ConversationNode(System.String.Format("Hello, Collector #{0}!\nWelcome to LERP Corporation.\nDo you know why you're here?", random), "No.", "Yes.");
 //		ConversationNode oneA = new ConversationNode("Wonderful. Well, you'll get started in a moment- Right after you take your PEAS.", "Okay.", "What are PEAS?");
 //		head.setRight(oneA);
-		ConversationNode oneA = new ConversationNode("Wonderful. Then I'm sure you'll collect Cubes for us quite efficiently.", "Okay.", "Why?");
+		ConversationNode oneA = new ConversationNode("Wonderful. Then I'm sure you'll collect Cubes for us quite efficiently.", "Okay.", "Hm...");
 		head.setRight(oneA);
-		ConversationNode oneB = new ConversationNode("Wonderful... You're here to help us complete our mission to collect every Cube in the known world.", "Why?", "Cool.");
+		ConversationNode oneB = new ConversationNode("Wonderful... You're here to help us complete our mission to collect every Cube in the known world.", "Okay...", "Cool.");
 		head.setLeft(oneB);
 //		ConversationNode twoA = new ConversationNode("You'll find out more as you go along- but first, you have to take your PEAS!", "Okay.", "What are PEAS?");
 //		oneB.setRight(twoA);
@@ -125,16 +119,9 @@ public class conversation_controller : MonoBehaviour {
 //		fiveA.setBoth(sixA);
 //		ConversationNode sevenA = new ConversationNode("Congratulations! You passed your first PEAS. The choices you made have been recorded permanently.", "Yay!", "Aww.");
 //		sixA.setBoth(sevenA);
-		ConversationNode twoA = new ConversationNode("Because that's what we do!", "Okay.", "Why?");
-		ConversationNode twoB = new ConversationNode("No more questions.", "Fine.", "Why?");
-		twoA.setRight(twoB);
-		oneA.setRight(twoA);
 		ConversationNode three = new ConversationNode("Tilt your device to move, and roll over cubes to collect them.", "Okay.", "Fine.");
-		oneA.setLeft (three);
-		oneB.setLeft(twoA);
-		oneB.setRight(three);
-		twoA.setLeft(three);
-		twoB.setBoth(three);
+		oneA.setBoth (three);
+		oneB.setBoth(three);
 		ConversationNode eightA = new ConversationNode("Collect as many Cubes as you can, then drop them off to complete your first task.", "Sounds good.", "Whatever.");
 		//sevenA.setBoth(eightA);
 		three.setBoth(eightA);
@@ -150,12 +137,12 @@ public class conversation_controller : MonoBehaviour {
 		return intro;
 	}
 
-	ConversationNode LevelThree(){
-		ConversationNode head = new ConversationNode("It seems like you're getting the hang of this. Keep up the good work.", "Thanks.", "Eh.");
-		ConversationNode one = new ConversationNode("Now we can send you to some Cubes that are a little more... Challenging.", "Bring it!", "Whatever.");
-		head.setBoth(one);
-		return head;
-	}
+//	ConversationNode LevelThree(){
+//		ConversationNode head = new ConversationNode("It seems like you're getting the hang of this. Keep up the good work.", "Thanks.", "Eh.");
+//		ConversationNode one = new ConversationNode("Now we can send you to some Cubes that are a little more... Challenging.", "Bring it!", "Whatever.");
+//		head.setBoth(one);
+//		return head;
+//	}
 
 	ConversationNode LevelFour(){
 //		ConversationNode head = new ConversationNode("Just two more collections and then you'll be ready for your next PEAS.", "I'm excited.", "I don't care.");
@@ -172,14 +159,14 @@ public class conversation_controller : MonoBehaviour {
 		return head;
 	}
 
-	ConversationNode LevelFive(){
-		ConversationNode head = new ConversationNode("These Cubes should check your skills thus far. It's a bit of a brain bender, so get ready.", "I was born ready.", "I do what I want.");
-		ConversationNode one = new ConversationNode("Good luck.", "Yessir.", "See ya.");
-		head.setBoth(one);
-		return head;
-	}
+//	ConversationNode LevelFive(){
+//		ConversationNode head = new ConversationNode("These Cubes should check your skills thus far. It's a bit of a brain bender, so get ready.", "I was born ready.", "I do what I want.");
+//		ConversationNode one = new ConversationNode("Good luck.", "Yessir.", "See ya.");
+//		head.setBoth(one);
+//		return head;
+//	}
 
-	ConversationNode LevelSix(){
+//	ConversationNode LevelSix(){
 //		ConversationNode head = new ConversationNode("Alright, it's time for your second PEAS.", "Yes.", "Maybe.");
 //		ConversationNode one = new ConversationNode("Question 1:\n2 + 3A = ?", "3", "B");
 //		head.setBoth(one);
@@ -193,15 +180,15 @@ public class conversation_controller : MonoBehaviour {
 //		four.setBoth(five);
 //		ConversationNode six = new ConversationNode("The next Cubes might crush you.\nGood luck.", "What?", "Why?");
 //		five.setBoth(six);
-		ConversationNode head = new ConversationNode("It seems like you've been trained pretty well. Maybe we should start sending you on harder missions.", "I'm good.", "Bring it!");
-		ConversationNode oneA = new ConversationNode("If you say so...", "Oh boy.", "Hoorah.");
-		ConversationNode oneB = new ConversationNode("You can handle it.", "Nope.", "Maybe.");
-		head.setLeft(oneB);
-		head.setRight(oneA);
-		return head;
-	}
+//		ConversationNode head = new ConversationNode("It seems like you've been trained pretty well. Maybe we should start sending you on harder missions.", "I'm good.", "Bring it!");
+//		ConversationNode oneA = new ConversationNode("If you say so...", "Oh boy.", "Hoorah.");
+//		ConversationNode oneB = new ConversationNode("You can handle it.", "Nope.", "Maybe.");
+//		head.setLeft(oneB);
+//		head.setRight(oneA);
+//		return head;
+//	}
 
-	ConversationNode LevelSeven(){
+//	ConversationNode LevelSeven(){
 //		ConversationNode head = new ConversationNode("I'm sorry I did that to you.", "Are you mad?", "I dislike you.");
 //		ConversationNode one = new ConversationNode("I just... thought you would be better at collecting by now.", "I'm doing my best.", "I'll try harder.");
 //		head.setLeft(one);
@@ -209,49 +196,49 @@ public class conversation_controller : MonoBehaviour {
 //		head.setRight(two);
 //		ConversationNode blah = new ConversationNode("Blargh.", "Ha.", "Shh.");
 //		two.setRight(blah);
-		ConversationNode three = new ConversationNode("The next Cubes will require some speed.", "Okay.", "I'll go slow then.");
+//		ConversationNode three = new ConversationNode("The next Cubes will require some speed.", "Okay.", "I'll go slow then.");
 //		blah.setBoth(three);
 //		two.setLeft(three);
 //		one.setBoth(three);
-		return three;
-	}
+//		return three;
+//	}
 
-	ConversationNode LevelEight(){
+	ConversationNode LevelThree(){
 		ConversationNode head = new ConversationNode("Did you know you could zoom out using two fingers?", "Yep.", "No way!");
 		ConversationNode one = new ConversationNode("You can see more of the world that way.", "Whatever.", "Sweet.");
 		head.setBoth(one);
 		return head;
 	}
 
-	ConversationNode LevelNine(){
-		ConversationNode head = new ConversationNode("I have a joke.", "I don't care.", "What is it?");
-		ConversationNode one = new ConversationNode("What did the Cube Collector say to the Drop Zone?", "What?", "Sigh...");
-		ConversationNode oneA = new ConversationNode("Alright then.", "Good.", "Bye.");
-		head.setLeft(oneA);
-		head.setRight(one);
-		ConversationNode two = new ConversationNode("'You suck!'", "That wasn't funny.", "Ha!");
-		ConversationNode three = new ConversationNode("Alright, your break's over. Get back to work.", "One more joke?", "Alright.");
-		ConversationNode four = new ConversationNode("Maybe later.", "I want it now!", "Okay.");
-		one.setBoth(two);
-		two.setBoth(three);
-		three.setLeft(four);
-		return head;
-	}
-
-	ConversationNode LevelTen(){
-		ConversationNode head = new ConversationNode("You're reaching the end of Zone 1...", "Good.", "Alright.");
-		ConversationNode one = new ConversationNode("What do you think might be in Zone 2?", "Cubes.", "Bees.");
-		head.setBoth(one);
-		ConversationNode twoA = new ConversationNode("You got that right.", "I know...", "Let's do it.");
-		ConversationNode twoB = new ConversationNode("Why would you say that?", "I like bees.", "I hate bees.");
-		one.setLeft(twoA);
-		one.setRight(twoB);
-		ConversationNode three = new ConversationNode("What if there were bees in Zone 2?", "I'd love that.", "I'd hate that.");
-		twoB.setBoth(three);
-		ConversationNode four = new ConversationNode("Well, you'll find out soon enough.", "Not soon enough.", "Too soon.");
-		three.setBoth(four);
-		return head;
-	}
+//	ConversationNode LevelNine(){
+//		ConversationNode head = new ConversationNode("I have a joke.", "I don't care.", "What is it?");
+//		ConversationNode one = new ConversationNode("What did the Cube Collector say to the Drop Zone?", "What?", "Sigh...");
+//		ConversationNode oneA = new ConversationNode("Alright then.", "Good.", "Bye.");
+//		head.setLeft(oneA);
+//		head.setRight(one);
+//		ConversationNode two = new ConversationNode("'You suck!'", "That wasn't funny.", "Ha!");
+//		ConversationNode three = new ConversationNode("Alright, your break's over. Get back to work.", "One more joke?", "Alright.");
+//		ConversationNode four = new ConversationNode("Maybe later.", "I want it now!", "Okay.");
+//		one.setBoth(two);
+//		two.setBoth(three);
+//		three.setLeft(four);
+//		return head;
+//	}
+//
+//	ConversationNode LevelTen(){
+//		ConversationNode head = new ConversationNode("You're reaching the end of Zone 1...", "Good.", "Alright.");
+//		ConversationNode one = new ConversationNode("What do you think might be in Zone 2?", "Cubes.", "Bees.");
+//		head.setBoth(one);
+//		ConversationNode twoA = new ConversationNode("You got that right.", "I know...", "Let's do it.");
+//		ConversationNode twoB = new ConversationNode("Why would you say that?", "I like bees.", "I hate bees.");
+//		one.setLeft(twoA);
+//		one.setRight(twoB);
+//		ConversationNode three = new ConversationNode("What if there were bees in Zone 2?", "I'd love that.", "I'd hate that.");
+//		twoB.setBoth(three);
+//		ConversationNode four = new ConversationNode("Well, you'll find out soon enough.", "Not soon enough.", "Too soon.");
+//		three.setBoth(four);
+//		return head;
+//	}
 
 	void displayText(){
 		qText.text = currentNode.question;

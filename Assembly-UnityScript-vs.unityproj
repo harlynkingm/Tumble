@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_0_1;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;UNITY_IPHONE;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;UNITY_IPHONE_API;UNITY_IOS;ENABLE_TEXTUREID_MAP;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_0_2;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;UNITY_IPHONE;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;UNITY_IPHONE_API;UNITY_IOS;ENABLE_TEXTUREID_MAP;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;ENABLE_IL2CPP;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -52,12 +52,16 @@
      <Compile Include="Assets\Scripts\Controller\zoom_controller.js" />
      <Compile Include="Assets\Scripts\GUI\animate_in.js" />
      <Compile Include="Assets\Scripts\GUI\backwards_display.js" />
+     <Compile Include="Assets\Scripts\GUI\countdown.js" />
      <Compile Include="Assets\Scripts\GUI\cube_counter.js" />
      <Compile Include="Assets\Scripts\GUI\cubes_text.js" />
+     <Compile Include="Assets\Scripts\GUI\disable_if_no_cubes.js" />
      <Compile Include="Assets\Scripts\GUI\pause_controller.js" />
+     <Compile Include="Assets\Scripts\GUI\point_arrow.js" />
      <Compile Include="Assets\Scripts\GUI\random_message.js" />
      <Compile Include="Assets\Scripts\GUI\remove_children.js" />
      <Compile Include="Assets\Scripts\GUI\rotate_cube_main_menu.js" />
+     <Compile Include="Assets\Scripts\GUI\scrollrect_fixer.js" />
      <Compile Include="Assets\Scripts\GUI\set_parent_name.js" />
      <Compile Include="Assets\Scripts\GUI\stats_text.js" />
      <Compile Include="Assets\Scripts\GUI\time_text.js" />
@@ -65,6 +69,7 @@
      <Compile Include="Assets\Scripts\GUI\zone_level_text.js" />
      <Compile Include="Assets\Scripts\Level\color_fader.js" />
      <Compile Include="Assets\Scripts\Level\cube_drop.js" />
+     <Compile Include="Assets\Scripts\Level\infinite_spawner.js" />
      <Compile Include="Assets\Scripts\Level\level_change.js" />
      <Compile Include="Assets\Scripts\Level\light_fader.js" />
      <Compile Include="Assets\Scripts\Level\play_level.js" />
@@ -75,7 +80,9 @@
      <Compile Include="Assets\Scripts\Object\Event\circle_event.js" />
      <Compile Include="Assets\Scripts\Object\Event\explode_event.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\capture_controller.js" />
+     <Compile Include="Assets\Scripts\Object\Interactable\conveyor.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\cube_trigger.js" />
+     <Compile Include="Assets\Scripts\Object\Interactable\help_lerpers.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

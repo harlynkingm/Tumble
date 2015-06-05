@@ -9,5 +9,6 @@ function Start(){
 function OnTriggerEnter (other : Collider) {
 	if (other.gameObject.tag == "Player"){
 		other.gameObject.GetComponent(player_controller).SetCapturePoint(number);
+		other.gameObject.GetComponent(player_controller).changeSpawn(gameObject);
 	}
 }

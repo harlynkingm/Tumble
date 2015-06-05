@@ -28,6 +28,7 @@ private var startSize : Vector3;
 private var cam: GameObject;
 private var camMoving: boolean;
 private var capturePoint : int = 0;
+private var capturePoints : GameObject[];
 private var backwards : boolean = false;
 
 private var maxSpeed : float = 7;
@@ -41,11 +42,25 @@ function Start(){
 	spawnPos = transform.position;
 	cubeTotal = 0;
 	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
+	UpdateLevelCubeCount();
 	startTime = Time.time;
 	startSize = transform.localScale;
 	cam = GameObject.FindGameObjectWithTag("MainCamera");
 	if (PlayerPrefs.HasKey("mask")) SetMask();
 	collisions = new List.<Collision>();
+	capturePoints = GameObject.FindGameObjectsWithTag("Respawn");
+	GetComponent(Renderer).sortingOrder = 100;
+}
+
+function UpdateLevelCubeCount(){
+	var level : int = ParseLevel();
+	var temp : String = String.Format("{0}{1}{2}", PlayerPrefs.GetString("player_progress").Substring(0, level - 1), cubesInLevel, PlayerPrefs.GetString("player_progress").Substring(level));
+	PlayerPrefs.SetString("player_progress", temp);
+}
+
+function ParseLevel(){
+ 	var name : String = Application.loadedLevelName.Substring(5);
+	return parseInt(name);
 }
 
 function Update () {
@@ -117,6 +132,7 @@ function OnCollisionStay(collision: Collision){
 	if (collisions.Count < 2) return;
 	var new_normal : Vector3 = collision.contacts[0].normal;
 	for (var existing_coll : Collision in collisions){
+		if (existing_coll.gameObject.name == "FRIEND") return;
 		var existing_normal : Vector3 = existing_coll.contacts[0].normal;
 		var normal_angle : float = Vector3.Angle(new_normal, existing_normal);
 		if (normal_angle > 170) despawn();
@@ -192,13 +208,34 @@ function GetTime(){
 
 function SetMask(){
 	var maskNum : int = PlayerPrefs.GetInt("mask");
-	mask.GetComponent(SpriteRenderer).sprite = masks[maskNum];
+	if (maskNum == 0){
+		mask.GetComponent(SpriteRenderer).sprite = null;
+		r.material.color = new Color(1f, 1f, 1f, 1f);
+	}
+	else{
+		mask.GetComponent(SpriteRenderer).sprite = masks[maskNum];
+		r.material.color = new Color(1f, 1f, 1f, 0f);
+	}
 }
 
 function SetCapturePoint(newCP : int){
 	if (newCP < capturePoint) backwards = true;
 	else backwards = false;
 	capturePoint = newCP;
+}
+
+function NearestCapturePoint(){
+	var name : String = String.Format("{0}", capturePoint + 1);
+	var obj : GameObject;
+	for (var cp : GameObject in capturePoints){
+		if (cp.name == name){
+			obj = cp;
+		}
+	}
+	if (obj == null){
+		obj = GameObject.FindGameObjectWithTag("Finish");
+	}
+	return obj;
 }
 
 function GetBackwards(){

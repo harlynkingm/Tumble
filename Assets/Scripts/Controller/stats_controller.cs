@@ -25,30 +25,23 @@ public class stats_controller : MonoBehaviour {
 		if (!PlayerPrefs.HasKey("jump_pads_used")){
 			PlayerPrefs.SetInt("jump_pads_used", 0);
 		}
-		PlayerPrefs.DeleteKey("level_cube_counts");
+		//PlayerPrefs.DeleteKey("level_cube_counts");
 		if (!PlayerPrefs.HasKey("level_cube_counts")){
-			string[] toCombine = new string[10];
-			toCombine[0] = "4443455476";
-			toCombine[1] = "0000000000";
-			toCombine[2] = "0000000000";
-			toCombine[3] = "0000000000";
-			toCombine[4] = "0000000000";
-			toCombine[5] = "0000000000";
-			toCombine[6] = "0000000000";
-			toCombine[7] = "0000000000";
-			toCombine[8] = "0000000000";
-			toCombine[9] = "0000000000";
-			PlayerPrefs.SetString ("level_cube_counts", string.Concat(toCombine));
+			string temp = CreateZeros(100);
+			PlayerPrefs.SetString ("level_cube_counts", temp);
 		}
 		if (!PlayerPrefs.HasKey("player_progress")){
-			string temp = "";
-			for (int i = 0; i < 100; i++){
-				temp = string.Concat(temp, "0");
-			}
+			string temp = CreateZeros(100);
 			PlayerPrefs.SetString("player_progress", temp);
 		}
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 	}
 
+	string CreateZeros(int num){
+		string temp = "";
+		for (int i = 0; i < num; i++){
+			temp = string.Concat(temp, "0");
+		}
+		return temp;
+	}
 }
-
-
