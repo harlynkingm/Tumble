@@ -14,10 +14,21 @@ function Start(){
 
 function Spawn(){
 //	if (objects[index] != null) Shrink(objects[index]);
-	if (objects[index] != null) return;
+	if (objects[index] != null) index = FindEmpty();
+	if (index == -1){
+		index = 0;
+		return;
+	}
 	objects[index] = GameObject.Instantiate(object, transform.position, transform.rotation);
 	objects[index].gameObject.name = objName;
 	index = (index + 1) % objects.Length;
+}
+
+function FindEmpty(){
+	for (var i : int = 0; i < objects.Length; i++){
+		if (objects[i] == null) return i;
+	}
+	return -1;
 }
 
 function Shrink(obj : GameObject){

@@ -6,7 +6,7 @@ public class camera_control : MonoBehaviour {
 	private Transform t;
 	private Transform pt;
 	private Vector3 move;
-	private float maxVal = 1f;
+	private float maxVal = 1.5f;
 	private bool moving;
 	private Vector3 destination;
 	private float startTime;
@@ -39,9 +39,21 @@ public class camera_control : MonoBehaviour {
 		else if (moving && p >= 1){
 			moving = false;
 		}
-		if (Time.timeScale == 1 && Input.touchCount == 1){
-			offset.x = Mathf.Clamp(offset.x - Input.GetTouch(0).deltaPosition.x * .01f, maxVal * -1f, maxVal);
-			offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .01f, maxVal * -1f, maxVal);
+		if (Time.timeScale == 1 && Input.touchCount > 0){
+			if (Input.touchCount == 1){
+				offset.x = Mathf.Clamp(offset.x - Input.GetTouch(0).deltaPosition.x * .01f, maxVal * -1f, maxVal);
+				offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .01f, maxVal * -1f, maxVal);
+			}
+			else if (Input.touchCount == 3){
+				StartCoroutine(ResetOffset(offset));
+			}
+		}
+	}
+
+	IEnumerator ResetOffset(Vector2 startPos){
+		for (float f = 0; f < 1f; f += .05f){
+			offset = Vector2.Lerp(startPos, Vector2.zero, f);
+			yield return null;
 		}
 	}
 

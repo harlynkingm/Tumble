@@ -43,6 +43,7 @@ function Start(){
 	cubeTotal = 0;
 	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
 	UpdateLevelCubeCount();
+	if (GetProgressForLevel(ParseLevel()) > cubesInLevel) ResetLevelProgress(ParseLevel());
 	startTime = Time.time;
 	startSize = transform.localScale;
 	cam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -54,7 +55,16 @@ function Start(){
 
 function UpdateLevelCubeCount(){
 	var level : int = ParseLevel();
-	var temp : String = String.Format("{0}{1}{2}", PlayerPrefs.GetString("player_progress").Substring(0, level - 1), cubesInLevel, PlayerPrefs.GetString("player_progress").Substring(level));
+	var temp : String = String.Format("{0}{1}{2}", PlayerPrefs.GetString("level_cube_counts").Substring(0, level - 1), cubesInLevel, PlayerPrefs.GetString("level_cube_counts").Substring(level));
+	PlayerPrefs.SetString("level_cube_counts", temp);
+}
+
+function GetProgressForLevel(level : int){
+	return int.Parse(PlayerPrefs.GetString("player_progress").Substring(level - 1, 1));
+}
+
+function ResetLevelProgress(level : int){
+	var temp : String = String.Format("{0}{1}{2}", PlayerPrefs.GetString("player_progress").Substring(0, level - 1), 0, PlayerPrefs.GetString("player_progress").Substring(level));
 	PlayerPrefs.SetString("player_progress", temp);
 }
 
@@ -130,9 +140,10 @@ function OnCollisionStay(collision: Collision){
 	collisions.Add(collision);
 	//blockMove += collision.contacts[0].normal;
 	if (collisions.Count < 2) return;
+	if (collision.gameObject.CompareTag("Neutral")) return;
 	var new_normal : Vector3 = collision.contacts[0].normal;
 	for (var existing_coll : Collision in collisions){
-		if (existing_coll.gameObject.name == "FRIEND") return;
+		if (existing_coll.gameObject.CompareTag("Neutral")) return;
 		var existing_normal : Vector3 = existing_coll.contacts[0].normal;
 		var normal_angle : float = Vector3.Angle(new_normal, existing_normal);
 		if (normal_angle > 170) despawn();
