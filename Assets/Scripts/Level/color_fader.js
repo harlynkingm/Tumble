@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var mat : Material;
+var img : UI.Image;
 var colors : Color[];
 private var color : Color;
 private var color1 : Color;
@@ -9,7 +10,7 @@ private var fadeTime : float = 400;
 private var offset : float;
 private var amt : float = 0.04;
 private var p : float;
-private var defaultC : Color = Color(.11, .11, .11, 1);
+var defaultC : Color = Color(.11, .11, .11, 1);
 
 function Start(){
 //	color = colors[(Application.loadedLevel - 1) % colors.Length];
@@ -37,11 +38,15 @@ function Start(){
 }
 
 function Update () {
-	p = Mathf.Sin((Mathf.PI * (Time.time + offset))/fadeTime)/2 + .5;
-//	mat.color = Color.Lerp(color, color1, p);
-	mat.color = grad.Evaluate(p);
+	if (Time.timeScale == 1) p = Mathf.Sin((Mathf.PI * (Time.time + offset))/fadeTime)/2 + .5;
+	else if (img != null){
+		offset += .05;
+		p = Mathf.Sin((Mathf.PI * (offset))/fadeTime)/2 + .5;
+	}
+	if (mat != null) mat.color = grad.Evaluate(p);
+	if (img != null) img.color = grad.Evaluate(p);
 }
 
 function OnApplicationQuit(){
-	mat.color = defaultC;
+	if (mat != null) mat.color = defaultC;
 }

@@ -1,18 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/player_controller.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI/countdown.js">
     <Files>
       <File FileName="Assets/Scripts/Controller/stats_controller.cs" Line="29" Column="45" />
       <File FileName="Assets/Scripts/GUI/lottery_menu.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="142" Column="66" />
+      <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/settings_controller.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Object/Animation/single_animation.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/lottery_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level/color_fader.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="146" Column="7" />
-      <File FileName="Assets/Scripts/Object/Interactable/help_lerpers.js" Line="22" Column="1" />
-      <File FileName="Assets/Scripts/Level/infinite_spawner.js" Line="32" Column="2" />
+      <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Object/Interactable/help_lerpers.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level/infinite_spawner.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/level_select_controller.cs" Line="73" Column="60" />
+      <File FileName="Assets/Scripts/GUI/countdown.js" Line="42" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

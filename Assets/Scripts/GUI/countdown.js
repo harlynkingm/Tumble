@@ -7,17 +7,19 @@ var go : GameObject;
 var pause : GameObject;
 var screen : GameObject;
 private var s : float;
+private var div : int;
+private var interval : float = 50;
 
 function Start () {
 	Time.timeScale = 0;
 	screen.SetActive(true);
 	three.SetActive(true);
-	s = System.DateTime.Now.Second;
 	pause.SetActive(false);
 }
 
 function Update(){
-	if (System.DateTime.Now.Second != s){
+	s += 1;
+	if (div != Mathf.FloorToInt(s/interval)){
 		if (three.activeSelf){
 			three.SetActive(false);
 			two.SetActive(true);
@@ -37,6 +39,6 @@ function Update(){
 			Time.timeScale = 1;
 			GetComponent(countdown).enabled = false;
 		}
-		s = System.DateTime.Now.Second;
+		div = Mathf.FloorToInt(s/interval);
 	}
 }

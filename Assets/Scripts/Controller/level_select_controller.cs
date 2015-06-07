@@ -12,10 +12,33 @@ public class level_select_controller : MonoBehaviour {
 	public Text levelText;
 	public Text countText;
 	public GameObject playButton;
+	private int levelsInGame = 10;
 
 	void Start () {
-		UpdateLevelText();
-		UpdateCountText();
+		if (Application.loadedLevel > 0) selectedLevel = ParseLevel();
+		else if (Application.loadedLevel == 0) selectedLevel = FindLatest();
+		GameObject tempBtn = FindButtonForLevel(selectedLevel);
+		SelectButton(tempBtn);
+	}
+
+	GameObject FindButtonForLevel(int level){
+		GameObject content = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+		int floor = (int) Mathf.Floor(level / 10f);
+		if (level % 10 == 0) floor -= 1;
+		int room = level % 10;
+		if (room == 0) room = 10;
+		int set = 0;
+		if (room > 5){
+			set = 1;
+			room -= 5;
+		}
+		GameObject button = content.transform.GetChild(floor).GetChild(1 + set).GetChild(room - 1).gameObject;
+		return button;
+	}
+
+	int ParseLevel(){
+		string name = Application.loadedLevelName.Substring(5);
+		return int.Parse(name);
 	}
 	
 	public void SelectButton(GameObject button){
@@ -47,27 +70,32 @@ public class level_select_controller : MonoBehaviour {
 
 	bool isPlayable(int level){
 		if (level == 1) return true;
-		if (int.Parse(PlayerPrefs.GetString("level_cube_counts").Substring(level - 1, 1)) == 0) return false;
+		//if (int.Parse(PlayerPrefs.GetString("level_cube_counts").Substring(level - 1, 1)) == 0) return false;
+		if (level > levelsInGame) return false;
 		if (int.Parse(PlayerPrefs.GetString("player_progress").Substring(level - 2, 1)) > 0) return true;
 		else return false;
 	}
 
-	public void PlayLatest(){
+	int FindLatest(){
 		for (int i = 0; i < 100; i++){
 			if (int.Parse(PlayerPrefs.GetString("player_progress").Substring(i, 1)) == 0 && isPlayable(i + 1)){
-				string levelname = string.Format("Level {0}", i + 1);
-				Application.LoadLevel(levelname);
-				return;
+				return i + 1;
 			}
 		}
 		bool stop = false;
 		while (stop == false){
 			int rand = Random.Range (1, 100);
 			if (isPlayable(rand)){
-				string levelname = string.Format("Level {0}", rand);
-				Application.LoadLevel(levelname);
 				stop = true;
+				return rand;
 			}
 		}
+		return -1;
+	}
+
+	public void PlayLatest(){
+		int level = FindLatest();
+		string levelname = string.Format("Level {0}", level);
+		Application.LoadLevel(levelname);
 	}
 }
