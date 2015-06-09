@@ -136,6 +136,8 @@ public class conversation_controller : MonoBehaviour {
 
 	ConversationNode LevelSeven(){
 		ConversationNode one = new ConversationNode("It's time for you to meet our friend: The Conveyor Belt.", "Ooh.", "Ahh.");
+		ConversationNode two = new ConversationNode("Conveyor Belts push you in the direction they are rolling.\nBe careful, they can be forceful.", "Got it.", "Aye-aye.");
+		one.setBoth(two);
 		return one;
 	}
 

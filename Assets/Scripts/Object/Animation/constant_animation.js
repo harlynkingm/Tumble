@@ -27,6 +27,16 @@ function ReverseRotation(){
 	rotation *= -1;
 }
 
+function Stop(){
+	moving = false;
+	rotating = false;
+}
+
+function Begin(){
+	moving = true;
+	rotating = true;
+}
+
 function OnDrawGizmosSelected(){
 	Gizmos.color = Color.grey;
 	Gizmos.DrawLine(transform.position, transform.position + relativeEnd);

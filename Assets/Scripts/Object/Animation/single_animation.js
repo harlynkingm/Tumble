@@ -37,6 +37,7 @@ function ActivateReverseMove(){
 function ActivateSuperReverseMove(){
 	ActivateReverseMove();
 	length = 1;
+	Invoke("ResetLength", 1);
 }
 
 function ResetLength(){
@@ -79,6 +80,10 @@ function Update () {
 function GetDone(){
 	if (p >= 1) return true;
 	else return false;
+}
+
+function GetMoving(){
+	return moving;
 }
 
 function OnDrawGizmosSelected(){
