@@ -30,7 +30,7 @@ private var camMoving: boolean;
 private var capturePoint : int = 0;
 private var capturePoints : GameObject[];
 private var backwards : boolean = false;
-
+private var canTeleport : boolean = true;
 private var maxSpeed : float = 7;
 private var newRotation : Quaternion;
 //private var blockMove : Vector3;
@@ -251,4 +251,12 @@ function NearestCapturePoint(){
 
 function GetBackwards(){
 	return backwards;
+}
+
+function CanTeleport(){
+	return canTeleport;
+}
+
+function SetTeleport(val : boolean){
+	canTeleport = val;
 }

@@ -9,6 +9,8 @@ var offset: float = 0;
 private var startPos : Vector3;
 private var endPos : Vector3;
 private var p : float;
+private var timeStopped : float;
+private var stopTime: float;
 
 function Start(){
 	startPos = transform.localPosition;
@@ -18,7 +20,7 @@ function Start(){
 function Update () {
 	if (rotating) transform.Rotate(rotation * Time.deltaTime);
 	if (moving){
-		p = Mathf.Sin((Mathf.PI * (Time.time - offset))/moveTime)/2 + .5;
+		p = Mathf.Sin((Mathf.PI * (Time.time - offset - timeStopped))/moveTime)/2 + .5;
 		transform.localPosition = Vector3.Lerp(startPos, endPos, p);
 	}
 }
@@ -28,11 +30,13 @@ function ReverseRotation(){
 }
 
 function Stop(){
+	stopTime = Time.time;
 	moving = false;
 	rotating = false;
 }
 
 function Begin(){
+	timeStopped += Time.time - stopTime;
 	moving = true;
 	rotating = true;
 }
