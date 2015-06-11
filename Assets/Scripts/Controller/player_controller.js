@@ -178,7 +178,7 @@ function respawn(){
 	c.enabled = true;
 	spawnTime = 0;
 	alive = true;
-	Destroy(exploded);
+	Shrink(exploded);
 	exploded = null;
 	mask.SetActive(true);
 	glow.SetActive(true);
@@ -191,6 +191,16 @@ function Grow(){
 		transform.localScale += Vector3.one * .05;
 		yield;
 	}
+}
+
+function Shrink(obj : GameObject){
+	var p : float = 0;
+	while (p <= 1){
+		obj.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * .01, p);
+		p += .1;
+		yield;
+	}
+	Destroy(obj);
 }
 
 function changeSpawn(pos : Vector3){

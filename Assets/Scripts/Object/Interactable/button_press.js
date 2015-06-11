@@ -4,6 +4,7 @@ var actions : single_animation[];
 var animations : constant_animation[];
 var orange : Material;
 var green : Material;
+var pressOnStart : boolean = false;
 private var p : GameObject;
 private var cam : Camera;
 private var coll : Collider;
@@ -14,6 +15,7 @@ function Start () {
 	p = GameObject.FindGameObjectWithTag("Player");
 	cam = Camera.main;
 	coll = GetComponent(Collider);
+	if (pressOnStart) Press();
 }
 
 function Update () {

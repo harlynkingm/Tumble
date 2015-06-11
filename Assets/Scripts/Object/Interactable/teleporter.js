@@ -26,7 +26,7 @@ function Shrink(obj : GameObject, distBetween : Vector3){
 		yield;
 	}
 	other_teleporter.Receive(obj, distBetween);
-	cam.SendMessage("NiceMoveBro", other_teleporter.transform.position);
+	if (obj.CompareTag("Player")) cam.SendMessage("NiceMoveBro", other_teleporter.transform.position);
 }
 
 function Grow(obj : GameObject){
@@ -42,15 +42,23 @@ function Grow(obj : GameObject){
 }
 
 function Receive(other : GameObject, relativePos : Vector3){
-	GetComponent(Collider).enabled = false;
-	Invoke("EnableCollider", 1);
+	Physics.IgnoreCollision(gameObject.GetComponent(Collider), other.GetComponent(Collider));
 	var newRelative : Vector3 = Vector3(relativePos.x, -1 * relativePos.y, 0);
 	var vel : Vector3 = other.GetComponent(Rigidbody).velocity;
 	other.transform.position = transform.position + newRelative;
 	Grow(other);
 	other.GetComponent(Rigidbody).velocity = vel;
+	yield WaitForSeconds(1);
+	Physics.IgnoreCollision(gameObject.GetComponent(Collider), other.GetComponent(Collider), false);
 }
 
 function EnableCollider(){
 	GetComponent(Collider).enabled = true;
+}
+
+function OnDrawGizmosSelected(){
+	if (other_teleporter != null){
+		Gizmos.color = Color.gray;
+		Gizmos.DrawLine(transform.position, other_teleporter.gameObject.transform.position);
+		}
 }
