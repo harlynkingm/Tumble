@@ -21,7 +21,7 @@ function OnCollisionStay(other : Collision){
 
 function CheckPush(other : Collision){
 	if (other.gameObject.CompareTag("Neutral") || other.gameObject.CompareTag("Player")) return;
-	if (Mathf.Abs(transform.position.y - other.contacts[0].point.y) < .1){
+	if (other.contacts.Length > 0 && Mathf.Abs(transform.position.y - other.contacts[0].point.y) < .1){
 		if (other.contacts[0].point.x > transform.position.x) GetComponent(Rigidbody).AddForce(Vector3.left * .1, ForceMode.Impulse);
 		else GetComponent(Rigidbody).AddForce(Vector3.right * .1, ForceMode.Impulse);
 	}
