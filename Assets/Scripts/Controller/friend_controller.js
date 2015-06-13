@@ -7,6 +7,10 @@ private var collisions : List.<Collision>;
 //	collisions = new List.<Collision>();
 //}
 
+function Start(){
+	GetComponent(Renderer).sortingOrder = 90;
+}
+
 //function FixedUpdate () {
 //	collisions.Clear();
 //}

@@ -8,9 +8,9 @@ function OnEnable () {
 }
 
 function GetLevel(){
-	var level : int = ParseLevel() % 10;
-	if (level == 0) level = 10;
-	return level;
+//	var level : int = ParseLevel() % 10;
+//	if (level == 0) level = 10;
+	return ParseLevel();
 }
 
 function GetZone(){

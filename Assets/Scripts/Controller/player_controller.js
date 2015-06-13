@@ -33,7 +33,6 @@ private var backwards : boolean = false;
 private var canTeleport : boolean = true;
 private var maxSpeed : float = 7;
 private var newRotation : Quaternion;
-//private var blockMove : Vector3;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
@@ -96,11 +95,7 @@ function Move(){
 	x = Mathf.Clamp(Input.acceleration.x * 3, -1, 1);
 	y = Mathf.Clamp((Input.acceleration.y + .5) * 3, -1, 1);
 	if (Mathf.Abs(x) < .05) x = 0;
-//	else if (blockMove.x >= .5 && x < 0) x = 0;
-//	else if (blockMove.x <= -.5 && x > 0) x = 0;
 	if (Mathf.Abs(y) < .05) y = 0;
-//	else if (blockMove.y >= .5 && y < 0) y = 0;
-//	else if (blockMove.y <= -.5 && y > 0) y = 0;
 //	rb.velocity = Vector3(x, y, 0) * 10;
 	rb.AddForce(Vector3(x, y, 0), ForceMode.VelocityChange);
 	if (x == 0) rb.AddForce(Vector3(rb.velocity.x * -.15, 0, 0), ForceMode.VelocityChange);
@@ -109,7 +104,6 @@ function Move(){
 
 function FixedUpdate(){
 	collisions.Clear();
-	//blockMove = Vector3.zero;
 	if(rb.velocity.magnitude > maxSpeed){
 		rb.velocity = rb.velocity.normalized * maxSpeed;
 		}
