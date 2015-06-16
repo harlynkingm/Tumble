@@ -16,6 +16,8 @@ public class camera_control : MonoBehaviour {
 	private float x;
 	private GameObject pl;
 	private Renderer plr;
+	private RaycastHit hit;
+	private bool movable = true;
 	
 	void Start () {
 		pl = GameObject.Find ("player");
@@ -28,7 +30,7 @@ public class camera_control : MonoBehaviour {
 	void Update () {
 		if (!moving){
 			t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
-			t.LookAt(pt);
+			//t.LookAt(pt);
 		}
 		else if (moving && p < 1){
 			p = Mathf.Clamp01((Time.time - startTime)/time);
@@ -41,13 +43,27 @@ public class camera_control : MonoBehaviour {
 		}
 		if (Time.timeScale == 1 && Input.touchCount > 0){
 			if (Input.touchCount == 1){
-				offset.x = Mathf.Clamp(offset.x - Input.GetTouch(0).deltaPosition.x * .01f, maxVal * -1f, maxVal);
-				offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .01f, maxVal * -1f, maxVal);
+				if (CheckHit(Input.GetTouch(0))) movable = false;
+				if (Input.GetTouch(0).phase == TouchPhase.Ended) movable = true;
+				if (movable){
+					offset.x = Mathf.Clamp(offset.x - Input.GetTouch(0).deltaPosition.x * .008f, maxVal * -1f, maxVal);
+					offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .008f, maxVal * -1f, maxVal);
+				}
 			}
 			else if (Input.touchCount == 3){
 				StartCoroutine(ResetOffset(offset));
 			}
 		}
+	}
+
+	bool CheckHit(Touch touch){
+		Ray ray = GetComponent<Camera>().ScreenPointToRay(touch.position);
+		if (Physics.Raycast(ray, out hit)){
+			if (hit.collider.CompareTag("Neutral")){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	IEnumerator ResetOffset(Vector2 startPos){

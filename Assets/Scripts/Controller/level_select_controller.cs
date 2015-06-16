@@ -12,7 +12,7 @@ public class level_select_controller : MonoBehaviour {
 	public Text levelText;
 	public Text countText;
 	public GameObject playButton;
-	private int levelsInGame = 10;
+	private int levelsInGame = 20;
 
 	void Start () {
 		if (Application.loadedLevel > 0) selectedLevel = ParseLevel();
@@ -56,7 +56,7 @@ public class level_select_controller : MonoBehaviour {
 	}
 
 	void UpdateLevelText(){
-		levelText.text = string.Format("Level {0}", selectedLevel);
+		levelText.text = string.Format("Room {0}", selectedLevel);
 	}
 
 	void UpdateCountText(){

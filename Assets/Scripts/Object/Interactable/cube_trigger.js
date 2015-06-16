@@ -1,5 +1,6 @@
 ﻿#pragma strict
 
+var breakable : GameObject;
 var local: boolean = false;
 var spawnOnObject : boolean = true;
 
@@ -13,5 +14,6 @@ function OnTriggerEnter (other : Collider) {
 		//gameObject.SetActive(false);
 		GetComponent(Collider).enabled = false;
 		GetComponent(Renderer).enabled = false;
+		GameObject.Instantiate(breakable, transform.position, transform.rotation);
 	}
 }

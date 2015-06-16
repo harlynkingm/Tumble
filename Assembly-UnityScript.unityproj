@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Controller\zoom_controller.js" />
      <Compile Include="Assets\Scripts\GUI\animate_in.js" />
      <Compile Include="Assets\Scripts\GUI\backwards_display.js" />
+     <Compile Include="Assets\Scripts\GUI\chest_piece.js" />
      <Compile Include="Assets\Scripts\GUI\countdown.js" />
      <Compile Include="Assets\Scripts\GUI\cube_counter.js" />
      <Compile Include="Assets\Scripts\GUI\cubes_text.js" />
@@ -82,12 +83,14 @@
      <Compile Include="Assets\Scripts\Object\Event\change_name.js" />
      <Compile Include="Assets\Scripts\Object\Event\circle_event.js" />
      <Compile Include="Assets\Scripts\Object\Event\explode_event.js" />
+     <Compile Include="Assets\Scripts\Object\Event\fade_on_spawn.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\button_press.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\capture_controller.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\conveyor.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\cube_trigger.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\help_lerpers.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\ignore_collision_with_tag.js" />
+     <Compile Include="Assets\Scripts\Object\Interactable\slider.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\teleporter.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

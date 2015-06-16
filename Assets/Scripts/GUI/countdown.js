@@ -8,7 +8,7 @@ var pause : GameObject;
 var screen : GameObject;
 private var s : float;
 private var div : int;
-private var interval : float = 50;
+private var interval : float = 20;
 
 function Start () {
 	Time.timeScale = 0;

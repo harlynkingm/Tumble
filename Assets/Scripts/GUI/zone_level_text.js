@@ -3,8 +3,9 @@
 function OnEnable () {
 	var level : int = GetLevel();
 	var zone : int = GetZone();
-	var text = String.Format("Floor {0} - Level {1}", zone, level);
-	gameObject.GetComponent(UI.Text).text = text;
+	var text = String.Format("Floor {0} - Room {1}", zone, level);
+	if (GetComponent(UI.Text) != null) gameObject.GetComponent(UI.Text).text = text;
+	else if (GetComponent(TextMesh) != null) GetComponent(TextMesh).text = text;
 }
 
 function GetLevel(){

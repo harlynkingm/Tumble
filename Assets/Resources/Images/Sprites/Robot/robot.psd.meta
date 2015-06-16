@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1f1faf78cc133420caa52344efa8de8f
-timeCreated: 1434177155
+timeCreated: 1434385620
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,12 @@ TextureImporter:
     21300010: normal eyes
     21300012: head
     21300014: body
+    21300016: surprised
+    21300018: raised_eyebrow
+    21300020: face
+    21300022: button_on
+    21300024: button_off
+    21300026: chest
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -34,11 +40,11 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 8192
+  textureFormat: 47
+  maxTextureSize: 1024
   textureSettings:
-    filterMode: 0
-    aniso: -1
+    filterMode: 2
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -53,7 +59,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     sprites:
@@ -71,12 +77,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 245
-        y: 954
+        y: 953
         width: 127
-        height: 10
+        height: 12
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: angry brows
       rect:
         serializedVersion: 2
@@ -134,6 +140,66 @@ TextureImporter:
         y: 87
         width: 718
         height: 525
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: surprised
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 839
+        width: 168
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: raised_eyebrow
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 766
+        width: 168
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: face
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 624
+        width: 267
+        height: 149
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: button_on
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 179
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: button_off
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: chest
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 618
+        width: 247
+        height: 121
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
