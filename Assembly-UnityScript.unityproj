@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\GUI\cube_counter.js" />
      <Compile Include="Assets\Scripts\GUI\cubes_text.js" />
      <Compile Include="Assets\Scripts\GUI\disable_if_no_cubes.js" />
+     <Compile Include="Assets\Scripts\GUI\parent_position.js" />
      <Compile Include="Assets\Scripts\GUI\pause_controller.js" />
      <Compile Include="Assets\Scripts\GUI\point_arrow.js" />
      <Compile Include="Assets\Scripts\GUI\random_message.js" />
@@ -88,6 +89,7 @@
      <Compile Include="Assets\Scripts\Object\Interactable\capture_controller.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\conveyor.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\cube_trigger.js" />
+     <Compile Include="Assets\Scripts\Object\Interactable\grey_zone.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\help_lerpers.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\ignore_collision_with_tag.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\slider.js" />

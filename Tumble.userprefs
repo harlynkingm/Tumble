@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Object/Interactable/button_press.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Object/Interactable/slider.js">
     <Files>
       <File FileName="Assets/Scripts/Controller/stats_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GUI/lottery_menu.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/mask_controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="135" Column="60" />
+      <File FileName="Assets/Scripts/Controller/conversation_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/settings_controller.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/lottery_controller.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Controller/player_controller.js" Line="1" Column="1" />
@@ -14,6 +14,9 @@
       <File FileName="Assets/Scripts/Object/Animation/single_animation.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Camera/camera_control.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Object/Interactable/cube_trigger.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Object/Interactable/slider.js" Line="33" Column="17" />
+      <File FileName="Assets/Scripts/Controller/rotate_controller.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI/scrollrect_fixer.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
