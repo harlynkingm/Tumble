@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\GUI\lottery_menu.cs" />
      <Compile Include="Assets\Scripts\GUI\lottery_time_display.cs" />
      <Compile Include="Assets\Scripts\GUI\play_controller.cs" />
+     <Compile Include="Assets\Scripts\Object\Builder\PipeBuilder.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

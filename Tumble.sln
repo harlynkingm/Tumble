@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{D630E132-11A4-1B26-1C09-A76A63911C3F}") = "Tumble", "Assembly-CSharp.csproj", "{D1C27425-8287-4AFF-948B-BC823E34628D}"
 EndProject
+Project("{D630E132-11A4-1B26-1C09-A76A63911C3F}") = "Tumble", "Assembly-CSharp-Editor.csproj", "{6A42009D-6773-F45C-8C8E-1E6FC21DEE5F}"
+EndProject
 Project("{D630E132-11A4-1B26-1C09-A76A63911C3F}") = "Tumble", "Assembly-UnityScript.unityproj", "{AD41FFE1-E6CF-4E4E-3F68-F56B4EAA0176}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{D1C27425-8287-4AFF-948B-BC823E34628D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C27425-8287-4AFF-948B-BC823E34628D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C27425-8287-4AFF-948B-BC823E34628D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A42009D-6773-F45C-8C8E-1E6FC21DEE5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A42009D-6773-F45C-8C8E-1E6FC21DEE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A42009D-6773-F45C-8C8E-1E6FC21DEE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A42009D-6773-F45C-8C8E-1E6FC21DEE5F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD41FFE1-E6CF-4E4E-3F68-F56B4EAA0176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AD41FFE1-E6CF-4E4E-3F68-F56B4EAA0176}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD41FFE1-E6CF-4E4E-3F68-F56B4EAA0176}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																							GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

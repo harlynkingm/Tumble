@@ -92,6 +92,7 @@
      <Compile Include="Assets\Scripts\Object\Interactable\grey_zone.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\help_lerpers.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\ignore_collision_with_tag.js" />
+     <Compile Include="Assets\Scripts\Object\Interactable\push.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\slider.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\teleporter.js" />
  <Reference Include="UnityEngine.UI">

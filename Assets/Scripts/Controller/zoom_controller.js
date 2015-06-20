@@ -18,9 +18,14 @@ function Zoom(){
 		lastDistance = GetTouchesDistance();
 		}
 	var delta : float = GetTouchesDistance() - lastDistance;
-	cam.orthographicSize -= delta * Time.deltaTime * .5;
-	if (cam.orthographicSize < 3) cam.orthographicSize = 3;
-	else if (cam.orthographicSize > 10) cam.orthographicSize = 10;
+	if (cam.orthographic){
+		cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - (delta * Time.deltaTime * .5), 3, 10);
+//		if (cam.orthographicSize < 3) cam.orthographicSize = 3;
+//		else if (cam.orthographicSize > 10) cam.orthographicSize = 10;
+		}
+	else{
+		cam.fieldOfView = Mathf.Clamp(cam.fieldOfView - (delta * Time.deltaTime * 5), 30, 100);
+	}
 	lastDistance = GetTouchesDistance();
 }
 

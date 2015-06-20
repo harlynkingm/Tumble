@@ -18,16 +18,23 @@ public class camera_control : MonoBehaviour {
 	private Renderer plr;
 	private RaycastHit hit;
 	private bool movable = true;
+	private bool still = false;
 	
 	void Start () {
 		pl = GameObject.Find ("player");
 		pt = pl.transform;
 		plr = pl.GetComponent<Renderer>();
 		t = gameObject.transform;
+		int level = int.Parse(Application.loadedLevelName.Substring(6));
+		if (level % 10 == 6){
+			still = true;
+			return;
+		}
 		t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
 	}
 
 	void Update () {
+		if (!still){
 		if (!moving){
 			t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
 			//t.LookAt(pt);
@@ -53,6 +60,7 @@ public class camera_control : MonoBehaviour {
 			else if (Input.touchCount == 3){
 				StartCoroutine(ResetOffset(offset));
 			}
+		}
 		}
 	}
 

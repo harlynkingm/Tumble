@@ -49,6 +49,12 @@ ModelImporter:
     100082: wheel 2
     100084: wheel 3
     100086: wheel 4
+    100088: curved_pipe
+    100090: curved_pipe_outside
+    100092: straight_pipe
+    100094: straight_pipe_outside
+    100096: curved_pipe_outside1
+    100098: straight_pipe_outside1
     400000: base
     400002: base 1
     400004: base 2
@@ -93,6 +99,12 @@ ModelImporter:
     400082: wheel 2
     400084: wheel 3
     400086: wheel 4
+    400088: curved_pipe
+    400090: curved_pipe_outside
+    400092: straight_pipe
+    400094: straight_pipe_outside
+    400096: curved_pipe_outside1
+    400098: straight_pipe_outside1
     2300000: base
     2300002: base 1
     2300004: base 2
@@ -128,6 +140,12 @@ ModelImporter:
     2300064: wheel 2
     2300066: wheel 3
     2300068: wheel 4
+    2300070: curved_pipe
+    2300072: curved_pipe_outside
+    2300074: straight_pipe
+    2300076: straight_pipe_outside
+    2300078: curved_pipe_outside1
+    2300080: straight_pipe_outside1
     3300000: base
     3300002: base 1
     3300004: base 2
@@ -163,6 +181,12 @@ ModelImporter:
     3300064: wheel 2
     3300066: wheel 3
     3300068: wheel 4
+    3300070: curved_pipe
+    3300072: curved_pipe_outside
+    3300074: straight_pipe
+    3300076: straight_pipe_outside
+    3300078: curved_pipe_outside1
+    3300080: straight_pipe_outside1
     4300000: player
     4300002: four_by_two
     4300004: eight_by_two
@@ -198,6 +222,12 @@ ModelImporter:
     4300064: wheel
     4300066: spoke
     4300068: wheel
+    4300070: straight_pipe
+    4300072: straight_pipe_outside
+    4300074: curved_pipe
+    4300076: curved_pipe_outside
+    4300078: straight_pipe_outside1
+    4300080: curved_pipe_outside1
     9500000: //RootNode
   materials:
     importMaterials: 1

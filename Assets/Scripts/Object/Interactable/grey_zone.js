@@ -15,7 +15,8 @@ function RotateAngle(){
 	var currentAngle : float;
 	if (rotated) currentAngle = 90;
 	else currentAngle = 0;
-	var startAngle : float = transform.eulerAngles.z;
+	var startAngle : float = 0;
+	if (!rotated) startAngle = 90;
 	var p : float = 0;
 	var x : float = 0;
 	var curEuler : Vector3 = Vector3(0, startAngle, 0);
