@@ -149,4 +149,14 @@ public class PipeBuilder : MonoBehaviour {
 		GameObject.DestroyImmediate(obj);
 		pipeline.RemoveAt(pipeline.Count - 1);
 	}
+
+	public void ScaleUp(){
+		if (head == null) head = gameObject;
+		head.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+	}
+
+	public void ScaleDown(){
+		if (head == null) head = gameObject;
+		head.transform.localScale = new Vector3(.8f, .8f, .8f);
+	}
 }

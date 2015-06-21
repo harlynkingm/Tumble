@@ -35,5 +35,14 @@ public class PipeBuilderEditor : Editor {
 		if (GUILayout.Button ("Delete")){
 			builder.Delete();
 		}
+		EditorGUILayout.Space();
+		EditorGUILayout.BeginHorizontal();
+		if (GUILayout.Button ("Scale Down")){
+			builder.ScaleDown();
+		}
+		if (GUILayout.Button("Scale Up")){
+			builder.ScaleUp();
+		}
+		EditorGUILayout.EndHorizontal();
 	}
 }
