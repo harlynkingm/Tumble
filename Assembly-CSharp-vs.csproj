@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\camera_control.cs" />
+     <Compile Include="Assets\Scripts\Camera\main_menu_cam.cs" />
      <Compile Include="Assets\Scripts\Controller\conversation_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\level_select_controller.cs" />
      <Compile Include="Assets\Scripts\Controller\lottery_controller.cs" />

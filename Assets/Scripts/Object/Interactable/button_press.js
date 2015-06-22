@@ -19,7 +19,7 @@ function Start () {
 }
 
 function Update () {
-	if (p.GetComponent(Renderer).enabled == false){ 
+	if (p != null && p.GetComponent(Renderer).enabled == false){ 
 		if (actions.Length > 0 && actions[0].GetMoving() == true) transform.GetChild(0).GetComponent(Renderer).material = orange;
 		return;
 	}
