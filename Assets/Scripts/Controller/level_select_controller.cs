@@ -12,7 +12,7 @@ public class level_select_controller : MonoBehaviour {
 	public Text levelText;
 	public Text countText;
 	public GameObject playButton;
-	private int levelsInGame = 20;
+	private int levelsInGame = 22;
 
 	void Start () {
 		if (Application.loadedLevel > 0) selectedLevel = ParseLevel();

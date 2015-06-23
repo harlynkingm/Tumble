@@ -125,7 +125,7 @@ public class conversation_controller : MonoBehaviour {
 		ConversationNode head = new ConversationNode("Hello there!\n\nMy name is Friendly the Evil Robot!", "Hi!", "Why is your name 'Evil?'");
 		ConversationNode oneB = new ConversationNode("That's just my name.\nI'm actually quite friendly.", "Okay...", "Whatever.", "Sad");
 		head.setRight(oneB);
-		ConversationNode oneA = new ConversationNode("Is this your first day at LERP Corporation?", "No.", "Yes.", "Question");
+		ConversationNode oneA = new ConversationNode("Is this your first day at the LERP Factory?", "No.", "Yes.", "Question");
 		head.setLeft(oneA);
 		oneB.setBoth(oneA);
 		ConversationNode twoA = new ConversationNode("Oh, then you probably know about the situation we're in.", "What situation?", "Yeah.", "Puzzled");
@@ -135,7 +135,7 @@ public class conversation_controller : MonoBehaviour {
 		ConversationNode five = new ConversationNode("Tilt your device to move, and roll over cubes to destroy them.", "Okay.", "Fine.");
 		ConversationNode fiveA = new ConversationNode("Could you? Tilt your device to move, and roll over cubes to destroy them.", "Okay.", "Fine.");
 		ConversationNode six = new ConversationNode("Just destroy as many Cubes as you can!\nYou don't have to destroy them all.", "Okay.", "Cool.");
-		ConversationNode seven = new ConversationNode("Use the Exit to go to the next Room.", "Sounds good!", "Roger that.");
+		ConversationNode seven = new ConversationNode("Use the Exit Pipe to go to the next Room.", "Sounds good!", "Roger that.");
 		oneA.setLeft (twoA);
 		oneA.setRight(twoB);
 		twoA.setBoth(threeA);
@@ -153,7 +153,7 @@ public class conversation_controller : MonoBehaviour {
 	ConversationNode LevelTwo(){
 		ConversationNode head = new ConversationNode("Good job on that last room. I'm still looking into who caused this mess.", "Okay.", "Who could it be?", "Surprised");
 		ConversationNode head2 = new ConversationNode("I have a few suspects, but nothing conclusive.", "Aw.", "Alright...", "Puzzled");
-		ConversationNode one = new ConversationNode("Slide across the screen to move the camera.\nUse three fingers to reset the camera.", "Nice.", "Okay.");
+		ConversationNode one = new ConversationNode("Slide across the screen to move the camera.", "Nice.", "Okay.");
 		ConversationNode two = new ConversationNode("Pinch with two fingers to zoom in and out.", "Okay.", "Fun.");
 		head.setLeft(one);
 		head.setRight(head2);
@@ -163,7 +163,7 @@ public class conversation_controller : MonoBehaviour {
 	}
 
 	ConversationNode LevelThree(){
-		ConversationNode intro = new ConversationNode("Here at LERP Corporation, we highly value individuality.", "Huh.", "Alright?");
+		ConversationNode intro = new ConversationNode("Here at the LERP Factory, we highly value individuality.", "Huh.", "Alright?");
 		ConversationNode intro2 = new ConversationNode("Express yourself by becoming a Persona!", "Cool.", "How?", "Surprised");
 		ConversationNode masks = new ConversationNode("You can choose and buy new Personas in the Pause Menu by spending the Cubes you've destroyed.", "Cool.", "Lame.");
 		intro.setBoth(intro2);
@@ -225,7 +225,7 @@ public class conversation_controller : MonoBehaviour {
 	}
 
 	ConversationNode LevelSeventeen(){
-		ConversationNode head = new ConversationNode("For ultimate efficiency, LERP Corporation uses a system of teleporters to move things around!", "Woah.", "Nice.", "Surprise");
+		ConversationNode head = new ConversationNode("For ultimate efficiency, the LERP Factory uses a system of teleporters to move things around!", "Woah.", "Nice.", "Surprise");
 		ConversationNode one = new ConversationNode("Teleporters can help you get to places that are hard to reach.", "Okay.", "How?");
 		ConversationNode two = new ConversationNode("Enter one teleporter to come out of the one it is linked to.", "Interesting.", "Alright.");
 		head.setBoth(one);

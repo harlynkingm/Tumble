@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Camera\TakeMovie.js" />
+     <Compile Include="Assets\Scripts\Camera\TakePicture.js" />
      <Compile Include="Assets\Scripts\Controller\friend_controller.js" />
      <Compile Include="Assets\Scripts\Controller\player_controller.js" />
      <Compile Include="Assets\Scripts\Controller\rotate_controller.js" />
@@ -56,6 +58,7 @@
      <Compile Include="Assets\Scripts\GUI\chest_piece.js" />
      <Compile Include="Assets\Scripts\GUI\countdown.js" />
      <Compile Include="Assets\Scripts\GUI\cube_counter.js" />
+     <Compile Include="Assets\Scripts\GUI\cube_counter_fade.js" />
      <Compile Include="Assets\Scripts\GUI\cubes_text.js" />
      <Compile Include="Assets\Scripts\GUI\disable_if_no_cubes.js" />
      <Compile Include="Assets\Scripts\GUI\parent_position.js" />
@@ -95,6 +98,9 @@
      <Compile Include="Assets\Scripts\Object\Interactable\push.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\slider.js" />
      <Compile Include="Assets\Scripts\Object\Interactable\teleporter.js" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
