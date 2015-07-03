@@ -24,8 +24,14 @@ function OnCollisionStay(other : Collision){
 }
 
 function CheckPush(other : Collision){
-	if (other.gameObject.CompareTag("Neutral") || other.gameObject.CompareTag("Player")) return;
-	if (other.contacts.Length > 0 && Mathf.Abs(transform.position.y - other.contacts[0].point.y) < .1){
+	if (other.gameObject.CompareTag("Neutral")) return;
+	else if (other.gameObject.CompareTag("Player")){
+		if (other.contacts[0].point.y > transform.position.y){
+			if (other.contacts[0].point.x > transform.position.x) GetComponent(Rigidbody).AddForce(Vector3.left * .1, ForceMode.Impulse);
+			else GetComponent(Rigidbody).AddForce(Vector3.right * .1, ForceMode.Impulse);
+		}
+	}
+	else if (other.contacts.Length > 0 && Mathf.Abs(transform.position.y - other.contacts[0].point.y) < .1){
 		if (other.contacts[0].point.x > transform.position.x) GetComponent(Rigidbody).AddForce(Vector3.left * .1, ForceMode.Impulse);
 		else GetComponent(Rigidbody).AddForce(Vector3.right * .1, ForceMode.Impulse);
 	}

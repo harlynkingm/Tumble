@@ -102,8 +102,6 @@ public class conversation_controller : MonoBehaviour {
 			return LevelSix();
 		case "Level 7":
 			return LevelSeven();
-		case "Level 8":
-			return LevelEight();
 		case "Level 10":
 			return LevelTen();
 		case "Level 11":
@@ -174,31 +172,24 @@ public class conversation_controller : MonoBehaviour {
 	}
 
 	ConversationNode LevelSix(){
-		ConversationNode head = new ConversationNode("This next room is going to be a bit different.", "Okay.", "How?", "Puzzled");
-		ConversationNode one = new ConversationNode("This time, the Cubes will be coming towards you.", "Oh boy.", "Sounds fun.", "Surprised");
-		head.setBoth(one);
-		return head;
-	}
-
-	ConversationNode LevelSeven(){
 		ConversationNode one = new ConversationNode("It's time for you to meet my friend: The Conveyor Belt.", "Ooh.", "Ahh.", "Question");
 		ConversationNode two = new ConversationNode("Conveyor Belts push you in the direction they are rolling.\nBe careful, they can be forceful.", "Got it.", "Aye-aye.", "Angry");
 		one.setBoth(two);
 		return one;
 	}
 
-	ConversationNode LevelEight(){
+	ConversationNode LevelSeven(){
 		ConversationNode head = new ConversationNode("Doors inside our factory are powered by the energy of small creatures called Lerpers.", "Aww.", "Meh.");
 		ConversationNode two = new ConversationNode("Since someone put Cubes everywhere, Lerpers haven't been able to do their jobs properly.", "Such a shame.", "Okay.", "Sad");
-		ConversationNode one = new ConversationNode("Push Lerpers to their stations to open doors.", "Okay.", "Maybe.");
+		ConversationNode one = new ConversationNode("Push Lerpers to their pipes to open doors.", "Okay.", "Maybe.");
 		head.setBoth(two);
 		two.setBoth(one);
 		return head;
 	}
 
 	ConversationNode LevelTen(){
-		ConversationNode head = new ConversationNode("You're almost done with the first floor!", "Yay!", "Aww.", "Surprised");
-		ConversationNode one = new ConversationNode("If you get the Lerpers through this level, we'll be one step closer to figuring out who made this mess.", "Okay.", "Sounds good.");
+		ConversationNode head = new ConversationNode("This next room is going to be a bit different.", "Okay.", "How?", "Puzzled");
+		ConversationNode one = new ConversationNode("This time, the Cubes will be coming towards you.", "Oh boy.", "Sounds fun.", "Surprised");
 		head.setBoth(one);
 		return head;
 	}

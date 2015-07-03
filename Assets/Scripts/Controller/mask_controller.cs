@@ -98,7 +98,7 @@ public class mask_controller : MonoBehaviour {
 
 	public void SaveMask(){
 		PlayerPrefs.SetInt("mask", selected);
-		if (Application.loadedLevelName != "Main Menu") GameObject.FindGameObjectWithTag("Player").SendMessage("SetMask");
+		GameObject.FindGameObjectWithTag("Player").SendMessage("SetMask");
 	}
 
 	public void buySelected(){

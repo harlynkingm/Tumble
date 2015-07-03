@@ -8,6 +8,7 @@ var pressOnStart : boolean = false;
 private var p : GameObject;
 private var cam : Camera;
 private var coll : Collider;
+private var coll2 : Collider;
 private var hit : RaycastHit;
 private var pressed : boolean;
 
@@ -15,6 +16,7 @@ function Start () {
 	p = GameObject.FindGameObjectWithTag("Player");
 	cam = Camera.main;
 	coll = GetComponent(Collider);
+	coll2 = transform.GetChild(0).GetComponent(Collider);
 	if (pressOnStart) Press();
 }
 
@@ -34,7 +36,7 @@ function Update () {
 function checkHits(position : Vector2){
 	var ray : Ray = cam.ScreenPointToRay(position);
 	if (Physics.Raycast(ray, hit)){
-		if (hit.collider == coll){
+		if (hit.collider == coll || hit.collider == coll2){
 			Press();
 		}
 	}

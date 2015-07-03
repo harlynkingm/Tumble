@@ -21,6 +21,7 @@ function Update () {
 }
 
 function FadeIn(){
+	total = player.getCubesInLevel();
 	var text : String = String.Format("{0} / {1}", cubeCount, total);
 	GetComponent(UI.Text).text = text;
 	while (GetComponent(UI.Text).color.a < 1){
@@ -28,7 +29,7 @@ function FadeIn(){
 		yield;
 	}
 	var ticker : int = 0;
-	while (ticker < 200){
+	while (ticker < 100){
 		ticker += 1;
 		yield;
 	}

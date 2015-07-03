@@ -3,6 +3,8 @@ using System.Collections;
 
 public class camera_control : MonoBehaviour {
 	public Vector2 offset;
+	public float left; public float right; public float up; public float down;
+	public GameObject switchButton;
 	private Transform t;
 	private Transform pt;
 	private Vector3 move;
@@ -15,26 +17,28 @@ public class camera_control : MonoBehaviour {
 	private float p;
 	private float x;
 	private GameObject pl;
+	private GameObject pl2;
 	private Renderer plr;
 	private RaycastHit hit;
 	private bool movable = true;
-	private bool still = false;
 	
 	void Start () {
-		pl = GameObject.Find ("player");
+		t = gameObject.transform;
+		left = t.position.x - left;
+		right = t.position.x + right;
+		up = t.position.y + up;
+		down = t.position.y - down;
+		pl = GameObject.FindGameObjectWithTag("Player");
+		if (GameObject.FindGameObjectWithTag("GameController") != null){
+			pl2 = GameObject.FindGameObjectWithTag("GameController");
+			switchButton.SetActive(true);
+		}
 		pt = pl.transform;
 		plr = pl.GetComponent<Renderer>();
-		t = gameObject.transform;
-		int level = int.Parse(Application.loadedLevelName.Substring(6));
-		if (level % 10 == 6){
-			still = true;
-			return;
-		}
-		t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
+		if (left != t.position.x || right != t.position.x || up != t.position.y || down != t.position.y) t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
 	}
 
 	void Update () {
-		if (!still){
 		if (!moving){
 			t.position = new Vector3(pt.position.x + offset.x, pt.position.y + offset.y, t.position.z);
 			//t.LookAt(pt);
@@ -53,15 +57,32 @@ public class camera_control : MonoBehaviour {
 				if (CheckHit(Input.GetTouch(0))) movable = false;
 				if (Input.GetTouch(0).phase == TouchPhase.Ended) movable = true;
 				if (movable){
-					offset.x = Mathf.Clamp(offset.x - Input.GetTouch(0).deltaPosition.x * .008f, maxVal * -1f, maxVal);
-					offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .008f, maxVal * -1f, maxVal);
+					offset.x = Mathf.Clamp(offset.x - Input.GetTouch(0).deltaPosition.x * .016f, maxVal * -1f, maxVal);
+					offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .016f, maxVal * -1f, maxVal);
 				}
 			}
-			else if (Input.touchCount == 3){
-				StartCoroutine(ResetOffset(offset));
+			else if (Input.touchCount == 3 && Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began || Input.GetTouch(2).phase == TouchPhase.Began){
+				if (pl2 == null) StartCoroutine(ResetOffset(offset));
 			}
 		}
+	}
+
+	public void Switch(){
+		if (pt == pl.transform){
+			pt = pl2.transform;
+			pl.SendMessage("StopMoving");
+			pl2.SendMessage("StartMoving");
 		}
+		else if (pt == pl2.transform){
+			pt = pl.transform;
+			pl.SendMessage("StartMoving");
+			pl2.SendMessage("StopMoving");
+		}
+		NiceMoveBro(pt.position);
+	}
+
+	void LateUpdate(){
+		t.position = new Vector3(Mathf.Clamp(t.position.x, left, right), Mathf.Clamp(t.position.y, down, up), t.position.z);
 	}
 
 	bool CheckHit(Touch touch){
@@ -87,5 +108,13 @@ public class camera_control : MonoBehaviour {
 		startTime = Time.time;
 		startPos = t.position;
 		p = 0;
+	}
+
+	void OnDrawGizmosSelected(){
+		Gizmos.color = Color.red;
+		float width = left + right;
+		float height = up + down;
+		Vector3 relativeCenter = new Vector3(width/2f - left, height/2f - down, 0);
+		Gizmos.DrawWireCube(transform.position + relativeCenter, new Vector3(width, height, .5f));
 	}
 }

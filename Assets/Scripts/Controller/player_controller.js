@@ -33,18 +33,21 @@ private var backwards : boolean = false;
 private var canTeleport : boolean = true;
 private var maxSpeed : float = 7;
 private var newRotation : Quaternion;
+private var canMove : boolean = true;
 
 function Start(){
 	rb = GetComponent(Rigidbody);
 	c = GetComponent(Collider);
 	r = GetComponent(Renderer);
-	spawnPos = transform.position;
-	cubeTotal = 0;
-	cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
-	UpdateLevelCubeCount();
-	if (GetProgressForLevel(ParseLevel()) > cubesInLevel) ResetLevelProgress(ParseLevel());
-	startTime = Time.time;
-	startSize = transform.localScale;
+	if (Application.loadedLevelName != "Main Menu"){
+		spawnPos = transform.position;
+		cubeTotal = 0;
+		cubesInLevel = GameObject.FindGameObjectsWithTag("Cube").Length;
+		UpdateLevelCubeCount();
+		if (GetProgressForLevel(ParseLevel()) > cubesInLevel) ResetLevelProgress(ParseLevel());
+		startTime = Time.time;
+		startSize = transform.localScale;
+	}
 	cam = GameObject.FindGameObjectWithTag("MainCamera");
 	if (PlayerPrefs.HasKey("mask")) SetMask();
 	collisions = new List.<Collision>();
@@ -82,7 +85,7 @@ function Update () {
 			camMoving = true;
 			cam.SendMessage("NiceMoveBro", Vector3(spawnPos.x, spawnPos.y, -10));
 		}
-		else if (spawnTime > 0 && Time.time > spawnTime && camMoving == true && Vector3.Distance(cam.transform.position, transform.position) <= 12){
+		else if (spawnTime > 0 && Time.time > spawnTime && camMoving == true && Vector3.Distance(cam.transform.position, transform.position) <= 20){
 			respawn();
 			camMoving = false;
 			}
@@ -90,6 +93,7 @@ function Update () {
 }
 
 function Move(){
+	if (canMove){
 //	x = Input.acceleration.x * (1/(1 - sensitivity));
 //	rb.AddForce(dir * force * x, ForceMode.VelocityChange);
 	x = Mathf.Clamp(Input.acceleration.x * 3, -1, 1);
@@ -100,10 +104,11 @@ function Move(){
 	rb.AddForce(Vector3(x, y, 0), ForceMode.VelocityChange);
 	if (x == 0) rb.AddForce(Vector3(rb.velocity.x * -.15, 0, 0), ForceMode.VelocityChange);
 	if (y == 0) rb.AddForce(Vector3(0, rb.velocity.y * -.15, 0), ForceMode.VelocityChange);
+	}
 }
 
 function FixedUpdate(){
-	collisions.Clear();
+	if (collisions != null) collisions.Clear();
 	if(rb.velocity.magnitude > maxSpeed){
 		rb.velocity = rb.velocity.normalized * maxSpeed;
 		}
@@ -111,6 +116,16 @@ function FixedUpdate(){
 
 function changeDirection(newDir : Vector3){
 	dir = newDir;
+}
+
+function StopMoving(){
+	canMove = false;
+	rb.isKinematic = true;
+}
+
+function StartMoving(){
+	canMove = true;
+	rb.isKinematic = false;
 }
 
 //function OnCollisionEnter(collision : Collision){
@@ -121,6 +136,10 @@ function changeDirection(newDir : Vector3){
 //		}
 //	}
 //}
+
+function OnCollisionEnter(collision : Collision){
+	if (collision.gameObject.CompareTag("Enemy")) despawn();
+}
 
 function OnCollisionStay(collision: Collision){
 //	if (collision.gameObject.name == "crusher-"){

@@ -72,7 +72,8 @@ public class level_select_controller : MonoBehaviour {
 		if (level == 1) return true;
 		//if (int.Parse(PlayerPrefs.GetString("level_cube_counts").Substring(level - 1, 1)) == 0) return false;
 		if (level > levelsInGame) return false;
-		if (int.Parse(PlayerPrefs.GetString("player_progress").Substring(level - 2, 1)) > 0) return true;
+		if (int.Parse(PlayerPrefs.GetString("player_progress").Substring(level - 2, 1)) > 0 && 
+		    int.Parse (PlayerPrefs.GetString("player_progress").Substring(level - 2, 1)) == int.Parse(PlayerPrefs.GetString("level_cube_counts").Substring(level - 2, 1))) return true;
 		else return false;
 	}
 

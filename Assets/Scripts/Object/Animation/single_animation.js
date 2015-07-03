@@ -1,9 +1,10 @@
-﻿#pragma strict
+#pragma strict
 
 var activeOnStart : boolean = true;
 var relativeDestination : Vector3;
 var length: float = 1;
 var trigger : single_animation;
+var timer : TextMesh;
 private var moving : boolean = false;
 private var reverse : boolean = false;
 private var p: float;
@@ -17,6 +18,7 @@ private var lastEnabled: boolean;
 
 function Start () {
 	if (activeOnStart && trigger == null) ActivateMove();
+	if (timer != null) timer.color.a = 1;
 	originalLength = length;
 	playerR = GameObject.FindGameObjectWithTag("Player").GetComponent(Renderer);
 	startPos = transform.localPosition;
@@ -60,9 +62,11 @@ function Update () {
 //		else transform.localPosition = Vector3.Lerp(curPos, endPos, x);
 		p = Mathf.Clamp01(p + (Time.deltaTime/length));
 		transform.localPosition = Vector3.Lerp(startPos, endPos, p);
+		if (timer != null) timer.text = String.Format("{0}s", Mathf.Lerp(length, 0, p).ToString("F1"));
 	}
 	else if (moving && !reverse && p >= 1){
 		moving = false;
+		if (timer != null) timer.text = "0.0s";
 	}
 	else if (moving && reverse && p > 0){
 		p = Mathf.Clamp01(p - (Time.deltaTime/length));
