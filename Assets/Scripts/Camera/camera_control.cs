@@ -61,7 +61,7 @@ public class camera_control : MonoBehaviour {
 					offset.y = Mathf.Clamp(offset.y - Input.GetTouch(0).deltaPosition.y * .016f, maxVal * -1f, maxVal);
 				}
 			}
-			else if (Input.touchCount == 3 && Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began || Input.GetTouch(2).phase == TouchPhase.Began){
+			else if (Input.touchCount == 3){
 				if (pl2 == null) StartCoroutine(ResetOffset(offset));
 			}
 		}
