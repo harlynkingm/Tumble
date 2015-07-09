@@ -28,12 +28,11 @@ function Move(){
 
 function StopMoving(){
 	canMove = false;
-	rb.isKinematic = true;
+	rb.velocity = Vector3.zero;
 }
 
 function StartMoving(){
 	canMove = true;
-	rb.isKinematic = false;
 }
 
 function FixedUpdate(){

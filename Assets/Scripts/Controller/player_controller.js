@@ -120,6 +120,7 @@ function changeDirection(newDir : Vector3){
 
 function StopMoving(){
 	canMove = false;
+	rb.velocity = Vector3.zero;
 	rb.isKinematic = true;
 }
 
